@@ -1,11 +1,20 @@
 <script lang="ts">
-  import { weatherData } from "./weather.svelte";
+  import { formatToHourISOString } from "./utils";
+  import type { WeatherData } from "./weather.types";
+
+  type HourlyWeatherProps = {
+    data: WeatherData;
+  };
+
+  const { data }: HourlyWeatherProps = $props();
 
   const howMany = 5;
-  const timeIndex = weatherData.data.hourly.time.indexOf(
-    weatherData.data.current.time
-  );
+  const currentTime = new Date(data.current.time);
+  currentTime.setMinutes(0);
 
+  const roundedDownHours = formatToHourISOString(currentTime);
+
+  const timeIndex = data.hourly.time.indexOf(roundedDownHours);
   const hourlies: {
     time: string;
     temperature: number;
@@ -14,9 +23,9 @@
 
   for (let i = timeIndex; i < timeIndex + howMany; i++) {
     hourlies.push({
-      time: weatherData.data.hourly.time[i],
-      temperature: weatherData.data.hourly.temperature_2m[i],
-      weatherCode: weatherData.data.hourly.weather_code[i],
+      time: data.hourly.time[i],
+      temperature: data.hourly.temperature_2m[i],
+      weatherCode: data.hourly.weather_code[i],
     });
   }
 </script>
@@ -25,7 +34,7 @@
   <div>
     <strong>
       {hourly.time}
-      {hourly.temperature}{weatherData.data.hourly_units.temperature_2m}
+      {hourly.temperature}{data.hourly_units.temperature_2m}
       {hourly.weatherCode}
     </strong>
   </div>

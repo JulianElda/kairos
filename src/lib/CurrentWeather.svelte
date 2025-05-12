@@ -1,7 +1,13 @@
 <script lang="ts">
-  import { weatherData } from "$lib/weather.svelte";
+  import type { WeatherData } from "./weather.types";
 
-  const currentTime = new Date(weatherData.data.current.time);
+  type CurrentWeatherProps = {
+    data: WeatherData;
+  };
+
+  const { data }: CurrentWeatherProps = $props();
+
+  const currentTime = new Date(data.current.time);
 </script>
 
 <h2>TODO: Location</h2>
@@ -12,6 +18,6 @@
 </div>
 
 <div>
-  {weatherData.data.current.temperature_2m}
-  {weatherData.data.current_units.temperature_2m}
+  {data.current.temperature_2m}
+  {data.current_units.temperature_2m}
 </div>
