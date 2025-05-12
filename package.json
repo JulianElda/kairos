@@ -24,6 +24,7 @@
     "@tailwindcss/vite": "^4.0.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/svelte": "^5.2.4",
+    "@types/js-cookie": "^3.0.6",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-svelte": "^3.0.0",
@@ -41,6 +42,7 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
-    "@julianelda/stilo": "^1.0.1"
+    "@julianelda/stilo": "^1.0.1",
+    "js-cookie": "^3.0.5"
   }
 }

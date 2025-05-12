@@ -3,6 +3,7 @@
   import CurrentWeather from "$lib/components/CurrentWeather.svelte";
   import DailyWeather from "$lib/components/DailyWeather.svelte";
   import HourlyWeather from "$lib/components/HourlyWeather.svelte";
+  import Footer from "$lib/components/Footer.svelte";
   import type { WeatherData } from "$lib/weather.types";
 
   type MainProps = {
@@ -17,3 +18,5 @@
   <HourlyWeather {data} />
   <DailyWeather {data} />
 </Card>
+
+<Footer />
