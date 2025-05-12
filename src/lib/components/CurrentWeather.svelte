@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { WeatherData } from "./weather.types";
+  import type { WeatherData } from "$lib/weather.types";
+  import WeatherDescription from "./WeatherDescription.svelte";
 
   type CurrentWeatherProps = {
     data: WeatherData;
@@ -11,6 +12,8 @@
 </script>
 
 <h2>TODO: Location</h2>
+
+<WeatherDescription code={data.current.weather_code} />
 
 <div>
   {currentTime.toLocaleDateString("en-GB")}

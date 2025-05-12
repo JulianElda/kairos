@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { WeatherData } from "./weather.types";
+  import type { WeatherData } from "$lib/weather.types";
   type DailyWeatherProps = {
     data: WeatherData;
   };

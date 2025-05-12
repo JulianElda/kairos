@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { formatToHourISOString } from "./utils";
-  import type { WeatherData } from "./weather.types";
+  import { formatToHourISOString } from "$lib/utils";
+  import type { WeatherData } from "$lib/weather.types";
 
   type HourlyWeatherProps = {
     data: WeatherData;
