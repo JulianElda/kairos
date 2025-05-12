@@ -8,8 +8,8 @@
 
   for (let i = 0; i < 5; i++) {
     dailies.push({
-      time: weatherData.daily.time[i],
-      weatherCode: weatherData.daily.weather_code[i],
+      time: weatherData.data.daily.time[i],
+      weatherCode: weatherData.data.daily.weather_code[i],
     });
   }
 </script>
