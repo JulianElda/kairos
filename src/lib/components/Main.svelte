@@ -8,13 +8,16 @@
 
   type MainProps = {
     data: WeatherData;
+    location: string;
   };
 
-  const { data }: MainProps = $props();
+  const { data, location }: MainProps = $props();
 </script>
 
 <Card>
-  <CurrentWeather {data} />
+  <CurrentWeather
+    {data}
+    {location} />
   <HourlyWeather {data} />
   <DailyWeather {data} />
 </Card>

@@ -4,14 +4,15 @@
 
   type CurrentWeatherProps = {
     data: WeatherData;
+    location: string;
   };
 
-  const { data }: CurrentWeatherProps = $props();
+  const { data, location }: CurrentWeatherProps = $props();
 
   const currentTime = new Date(data.current.time);
 </script>
 
-<h2>TODO: Location</h2>
+<h2>{location}</h2>
 
 <WeatherDescription code={data.current.weather_code} />
 
