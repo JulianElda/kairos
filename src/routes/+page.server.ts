@@ -1,10 +1,11 @@
+import { json } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ fetch, request }) => {
   const headers = request.headers;
-  const city = headers.get("x-vercel-ip-city");
+  const city = headers.get("X-Vercel-IP-City");
 
-  return city;
+  return json({ city });
 
   const citySearch = await fetch(`
     https://geocoding-api.open-meteo.com/v1/search?count=1&language=en&format=json&name=${encodeURIComponent(city)}

@@ -9,5 +9,5 @@
 </script>
 
 <div class="mx-auto flex min-h-full w-full max-w-xl flex-col space-y-1 sm:pt-4">
-  <p>{data}</p>
+  <p>{data.city}</p>
 </div>
