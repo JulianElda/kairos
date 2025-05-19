@@ -1,13 +1,12 @@
 type WeatherDescription = {
   code: number;
   description: string;
-  icon?: string;
 };
 
 export const weatherDescriptions: Record<number, WeatherDescription> = {
-  0: { code: 0, description: "Clear sky", icon: "clear-day" },
-  1: { code: 1, description: "Mainly clear", icon: "clear-day" },
-  2: { code: 2, description: "Partly cloudy", icon: "partly-cloudy-day" },
+  0: { code: 0, description: "Clear sky" },
+  1: { code: 1, description: "Mainly clear" },
+  2: { code: 2, description: "Partly cloudy" },
   3: { code: 3, description: "Overcast" },
   45: { code: 45, description: "Fog" },
   48: { code: 48, description: "Depositing rime fog" },
