@@ -2,7 +2,9 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ fetch, request }) => {
   const headers = request.headers;
-  const city = headers.get("x-vercel-ip-city") || "Munich";
+  const city = headers.get("x-vercel-ip-city");
+
+  return city;
 
   const citySearch = await fetch(`
     https://geocoding-api.open-meteo.com/v1/search?count=1&language=en&format=json&name=${encodeURIComponent(city)}
