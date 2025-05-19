@@ -4,7 +4,7 @@
   type WeatherDescriptionProps = {
     code: number;
   };
-  const { code } = $props();
+  const { code }: WeatherDescriptionProps = $props();
 
   const weatherDescription = weatherDescriptions[code];
 </script>

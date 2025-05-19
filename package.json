@@ -19,6 +19,7 @@
     "@eslint/compat": "^1.2.5",
     "@eslint/js": "^9.18.0",
     "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/adapter-vercel": "^5.7.2",
     "@sveltejs/kit": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@tailwindcss/vite": "^4.0.0",
@@ -42,6 +43,7 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
+    "@julianelda/scratchpad": "^1.8.3",
     "@julianelda/stilo": "^1.0.1",
     "js-cookie": "^3.0.5"
   }
