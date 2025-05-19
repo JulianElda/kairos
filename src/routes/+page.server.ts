@@ -8,6 +8,8 @@ export const load: PageServerLoad = async ({ fetch, request }) => {
     https://geocoding-api.open-meteo.com/v1/search?count=10&language=en&format=json&name=${encodeURIComponent(city)}
   `).then((res) => res.json());
 
+  console.log(citySearch);
+
   if (citySearch.results) {
     const result = citySearch.results[0];
 

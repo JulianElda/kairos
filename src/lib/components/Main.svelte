@@ -18,5 +18,3 @@
   <HourlyWeather {data} />
   <DailyWeather {data} />
 </Card>
-
-<Footer />
