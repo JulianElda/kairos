@@ -1,17 +1,15 @@
 <script lang="ts">
-  import type { WeatherResponse } from "$lib/weather.types";
-  type DailyWeatherProps = {
-    data: WeatherResponse;
-  };
+  import { weatherData } from "$lib/weather.svelte";
 
-  const { data }: DailyWeatherProps = $props();
+  const data = weatherData.data!;
 
   const dailies: {
     time: string;
     weatherCode: number;
   }[] = [];
 
-  for (let i = 0; i < 5; i++) {
+  const howMany = 5;
+  for (let i = 0; i < howMany; i++) {
     dailies.push({
       time: data.daily.time[i],
       weatherCode: data.daily.weather_code[i],

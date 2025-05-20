@@ -1,13 +1,9 @@
 <script lang="ts">
   import { formatToHourISOString } from "$lib/utils";
-  import type { WeatherResponse } from "$lib/weather.types";
+  import { weatherData } from "$lib/weather.svelte";
   import WeatherIcon from "./WeatherIcon.svelte";
 
-  type HourlyWeatherProps = {
-    data: WeatherResponse;
-  };
-
-  const { data }: HourlyWeatherProps = $props();
+  const data = weatherData.data!;
 
   const howMany = 5;
   const currentTime = new Date(data.current.time);
@@ -44,7 +40,7 @@
         {hourly.time}
       </strong>
       <div
-        class="-my-2 flex size-16 w-full justify-center text-slate-800 dark:text-slate-100">
+        class="-my-2 flex size-16 w-full justify-center text-slate-700 dark:text-slate-200">
         <WeatherIcon
           code={data.current.weather_code}
           time={hourly.date}

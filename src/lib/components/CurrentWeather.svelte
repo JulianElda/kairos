@@ -1,19 +1,15 @@
 <script lang="ts">
   import { weatherDescriptions } from "$lib/weather";
-  import type { WeatherResponse } from "$lib/weather.types";
+  import { weatherData } from "$lib/weather.svelte";
   import WeatherIcon from "./WeatherIcon.svelte";
 
-  type CurrentWeatherProps = {
-    data: WeatherResponse;
-    location: string;
-  };
-
-  const { data, location }: CurrentWeatherProps = $props();
+  const data = weatherData.data!;
+  const location = weatherData.location!;
 
   const weatherDescription = weatherDescriptions[data.current.weather_code];
 </script>
 
-<div class="flex flex-col gap-8 px-12 md:flex-row">
+<div class="flex flex-col gap-8 md:flex-row">
   <div>
     <div>
       <h1 class="text-3xl font-bold">{location}</h1>
@@ -26,7 +22,7 @@
   <div>
     <div class="flex flex-col items-center justify-center">
       <div
-        class="-m-2 size-24 max-h-24 w-full max-w-24 text-slate-800 dark:text-slate-100">
+        class="-m-2 flex size-24 max-h-24 w-full max-w-24 text-slate-700 dark:text-slate-200">
         <WeatherIcon
           code={data.current.weather_code}
           time={data.current.time}

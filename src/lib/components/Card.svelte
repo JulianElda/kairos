@@ -3,6 +3,6 @@
 </script>
 
 <div
-  class="space-y-4 rounded-md bg-white p-1 shadow-sm sm:p-4 dark:bg-slate-700">
+  class="space-y-4 rounded-md bg-white p-2 shadow-sm sm:p-6 dark:bg-slate-700">
   {@render children()}
 </div>

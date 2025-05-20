@@ -4,6 +4,7 @@
   import DailyWeather from "$lib/components/DailyWeather.svelte";
   import HourlyWeather from "$lib/components/HourlyWeather.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import { weatherData } from "$lib/weather.svelte";
   import type { WeatherResponse } from "$lib/weather.types";
 
   type MainProps = {
@@ -12,14 +13,14 @@
   };
 
   const { data, location }: MainProps = $props();
+  weatherData.data = data;
+  weatherData.location = location;
 </script>
 
 <Card>
-  <CurrentWeather
-    {data}
-    {location} />
-  <HourlyWeather {data} />
-  <DailyWeather {data} />
+  <CurrentWeather />
+  <HourlyWeather />
+  <DailyWeather />
 </Card>
 
 <Footer />
