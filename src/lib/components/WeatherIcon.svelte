@@ -6,13 +6,8 @@
     code: number;
   };
   const { code }: WeatherDescriptionProps = $props();
-
-  const weatherDescription = weatherDescriptions[code];
 </script>
 
-<div class="size-16 fill-red-500 stroke-transparent">
+<div class="size-24 stroke-transparent text-slate-800 dark:text-slate-100">
   <DayClearIcon />
-</div>
-<div>
-  {weatherDescription.description}
 </div>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { formatToHourISOString } from "$lib/utils";
   import type { WeatherData } from "$lib/weather.types";
+  import WeatherIcon from "./WeatherIcon.svelte";
 
   type HourlyWeatherProps = {
     data: WeatherData;
@@ -23,19 +24,29 @@
 
   for (let i = timeIndex; i < timeIndex + howMany; i++) {
     hourlies.push({
-      time: data.hourly.time[i],
+      time: new Intl.DateTimeFormat("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }).format(new Date(data.hourly.time[i])),
       temperature: data.hourly.temperature_2m[i],
       weatherCode: data.hourly.weather_code[i],
     });
   }
 </script>
 
-{#each hourlies as hourly}
-  <div>
-    <strong>
-      {hourly.time}
-      {hourly.temperature}{data.hourly_units.temperature_2m}
-      {hourly.weatherCode}
-    </strong>
-  </div>
-{/each}
+<div class="flex gap-4">
+  {#each hourlies as hourly}
+    <div class="flex flex-col">
+      <strong class="text-center text-lg">
+        {hourly.time}
+      </strong>
+      <div class="-my-2">
+        <WeatherIcon code={hourly.weatherCode} />
+      </div>
+      <div class="text-center font-semibold">
+        {hourly.temperature}{data.hourly_units.temperature_2m}
+      </div>
+    </div>
+  {/each}
+</div>
