@@ -37,12 +37,13 @@
 
 <div class="flex gap-4">
   {#each hourlies as hourly}
-    <div class="flex flex-col">
+    <div class="flex flex-1 flex-col">
       <strong class="text-center text-lg">
         {hourly.time}
       </strong>
-      <div class="-my-2">
-        <WeatherIcon code={hourly.weatherCode} />
+      <div
+        class="-my-2 flex size-16 w-full justify-center text-slate-800 dark:text-slate-100">
+        <WeatherIcon code={data.current.weather_code} />
       </div>
       <div class="text-center font-semibold">
         {hourly.temperature}{data.hourly_units.temperature_2m}

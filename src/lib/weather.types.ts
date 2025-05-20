@@ -30,12 +30,14 @@ export type WeatherData = {
   };
   daily_units: {
     time: string;
+    sunrise: string;
     sunset: string;
     weather_code: string;
   };
   daily: {
     time: string[];
     weather_code: number[];
+    sunrise: string[];
     sunset: string[];
   };
 };

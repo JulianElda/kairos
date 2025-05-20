@@ -2,6 +2,7 @@
   let { children } = $props();
 </script>
 
-<div class="rounded-md bg-white p-1 shadow-sm sm:p-4 dark:bg-slate-700">
+<div
+  class="space-y-4 rounded-md bg-white p-1 shadow-sm sm:p-4 dark:bg-slate-700">
   {@render children()}
 </div>
