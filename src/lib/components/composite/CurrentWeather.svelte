@@ -1,8 +1,8 @@
 <script lang="ts">
+  import WeatherIcon from "$lib/components/basic/WeatherIcon.svelte";
   import { isDayTime } from "$lib/utils";
   import { weatherDescriptions } from "$lib/weather";
   import { weatherData } from "$lib/weather.svelte";
-  import WeatherIcon from "../basic/WeatherIcon.svelte";
 
   const data = weatherData.data!;
   const location = weatherData.location!;
@@ -15,7 +15,7 @@
     <div>
       <h1 class="text-3xl font-bold">{location}</h1>
     </div>
-    <div class=" text-5xl font-bold">
+    <div class=" text-end text-5xl font-bold">
       {Math.floor(data.current.temperature_2m)}{data.current_units
         .temperature_2m}
     </div>

@@ -42,7 +42,7 @@
         {hourly.displayTime}
       </div>
       <div
-        class="-my-2 flex size-16 w-full justify-center text-gray-700 dark:text-gray-200">
+        class="flex size-16 w-full justify-center text-gray-700 dark:text-gray-200">
         <WeatherIcon
           code={data.current.weather_code}
           isDayIcon={hourly.isDayIcon} />
