@@ -7,7 +7,7 @@
   const weatherData = data.weatherData as WeatherResponse;
 </script>
 
-<div class="mx-auto flex min-h-full w-full max-w-xl flex-col space-y-1 sm:pt-4">
+<div class="mx-auto flex min-h-full w-full max-w-lg flex-col space-y-1 sm:pt-4">
   {#if data.city}
     <Main
       data={weatherData}

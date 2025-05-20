@@ -24,3 +24,19 @@ export function isDayTime(currentTime: string, daily: WeatherDaily): boolean {
     currentDate.getTime() < sunset.getTime()
   );
 }
+
+export function formatDailyDisplayDay(days: string[]): string[] {
+  return [
+    "Today",
+    "Tomorrow",
+    new Intl.DateTimeFormat("en", { weekday: "long" }).format(
+      new Date(days[2])
+    ),
+    new Intl.DateTimeFormat("en", { weekday: "long" }).format(
+      new Date(days[3])
+    ),
+    new Intl.DateTimeFormat("en", { weekday: "long" }).format(
+      new Date(days[4])
+    ),
+  ];
+}

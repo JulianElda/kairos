@@ -28,26 +28,26 @@
         minute: "2-digit",
         hour12: false,
       }).format(new Date(data.hourly.time[i])),
-      temperature: data.hourly.temperature_2m[i],
+      temperature: Math.floor(data.hourly.temperature_2m[i]),
       weatherCode: data.hourly.weather_code[i],
       isDayIcon: isDayTime(data.hourly.time[i], data.daily),
     });
   }
 </script>
 
-<div class="flex gap-4">
+<div class="flex space-x-4">
   {#each hourlies as hourly}
     <div class="flex flex-1 flex-col">
-      <strong class="text-center text-lg">
+      <div class="text-center text-lg">
         {hourly.displayTime}
-      </strong>
+      </div>
       <div
-        class="-my-2 flex size-16 w-full justify-center text-slate-700 dark:text-slate-200">
+        class="-my-2 flex size-16 w-full justify-center text-gray-700 dark:text-gray-200">
         <WeatherIcon
           code={data.current.weather_code}
           isDayIcon={hourly.isDayIcon} />
       </div>
-      <div class="text-center font-semibold">
+      <div class="text-center text-lg">
         {hourly.temperature}{data.hourly_units.temperature_2m}
       </div>
     </div>
