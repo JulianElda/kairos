@@ -29,13 +29,17 @@ export type WeatherDailyUnits = {
   sunrise: string;
   sunset: string;
   weather_code: string;
+  temperature_2m_max: string;
+  temperature_2m_min: string;
 };
 
 export type WeatherDaily = {
   time: string[];
-  weather_code: number[];
   sunrise: string[];
   sunset: string[];
+  weather_code: number[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
 };
 
 export type WeatherResponse = {

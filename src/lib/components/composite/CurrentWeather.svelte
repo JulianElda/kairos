@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { isDayTime } from "$lib/utils";
   import { weatherDescriptions } from "$lib/weather";
   import { weatherData } from "$lib/weather.svelte";
-  import WeatherIcon from "./WeatherIcon.svelte";
+  import WeatherIcon from "../basic/WeatherIcon.svelte";
 
   const data = weatherData.data!;
   const location = weatherData.location!;
@@ -25,8 +26,7 @@
         class="-m-2 flex size-24 max-h-24 w-full max-w-24 text-slate-700 dark:text-slate-200">
         <WeatherIcon
           code={data.current.weather_code}
-          time={data.current.time}
-          daily={data.daily} />
+          isDayIcon={isDayTime(data.current.time, data.daily)} />
       </div>
 
       <div class="text-center">

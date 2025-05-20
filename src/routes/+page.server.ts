@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({ fetch, request }) => {
     const weatherData = await fetch(
       `https://api.open-meteo.com/v1/forecast` +
         `?latitude=${result.latitude}&longitude=${result.longitude}` +
-        `&daily=sunrise,sunset,weather_code` +
+        `&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min` +
         `&hourly=temperature_2m,weather_code&current=temperature_2m,weather_code` +
         `&timezone=auto`
     ).then((res) => res.json());
