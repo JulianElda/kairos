@@ -1,10 +1,10 @@
 <script lang="ts">
   import { formatToHourISOString } from "$lib/utils";
-  import type { WeatherData } from "$lib/weather.types";
+  import type { WeatherResponse } from "$lib/weather.types";
   import WeatherIcon from "./WeatherIcon.svelte";
 
   type HourlyWeatherProps = {
-    data: WeatherData;
+    data: WeatherResponse;
   };
 
   const { data }: HourlyWeatherProps = $props();
@@ -18,6 +18,7 @@
   const timeIndex = data.hourly.time.indexOf(roundedDownHours);
   const hourlies: {
     time: string;
+    date: string;
     temperature: number;
     weatherCode: number;
   }[] = [];
@@ -29,6 +30,7 @@
         minute: "2-digit",
         hour12: false,
       }).format(new Date(data.hourly.time[i])),
+      date: data.hourly.time[i],
       temperature: data.hourly.temperature_2m[i],
       weatherCode: data.hourly.weather_code[i],
     });
@@ -43,7 +45,10 @@
       </strong>
       <div
         class="-my-2 flex size-16 w-full justify-center text-slate-800 dark:text-slate-100">
-        <WeatherIcon code={data.current.weather_code} />
+        <WeatherIcon
+          code={data.current.weather_code}
+          time={hourly.date}
+          daily={data.daily} />
       </div>
       <div class="text-center font-semibold">
         {hourly.temperature}{data.hourly_units.temperature_2m}

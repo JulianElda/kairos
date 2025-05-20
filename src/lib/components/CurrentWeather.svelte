@@ -1,10 +1,10 @@
 <script lang="ts">
   import { weatherDescriptions } from "$lib/weather";
-  import type { WeatherData } from "$lib/weather.types";
+  import type { WeatherResponse } from "$lib/weather.types";
   import WeatherIcon from "./WeatherIcon.svelte";
 
   type CurrentWeatherProps = {
-    data: WeatherData;
+    data: WeatherResponse;
     location: string;
   };
 
@@ -27,7 +27,10 @@
     <div class="flex flex-col items-center justify-center">
       <div
         class="-m-2 size-24 max-h-24 w-full max-w-24 text-slate-800 dark:text-slate-100">
-        <WeatherIcon code={data.current.weather_code} />
+        <WeatherIcon
+          code={data.current.weather_code}
+          time={data.current.time}
+          daily={data.daily} />
       </div>
 
       <div class="text-center">

@@ -4,10 +4,10 @@
   import DailyWeather from "$lib/components/DailyWeather.svelte";
   import HourlyWeather from "$lib/components/HourlyWeather.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import type { WeatherData } from "$lib/weather.types";
+  import type { WeatherResponse } from "$lib/weather.types";
 
   type MainProps = {
-    data: WeatherData;
+    data: WeatherResponse;
     location: string;
   };
 

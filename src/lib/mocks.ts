@@ -1,6 +1,6 @@
-import type { WeatherData } from "./weather.types";
+import type { WeatherResponse } from "./weather.types";
 
-export const mockWeatherData: WeatherData = {
+export const mockWeatherData: WeatherResponse = {
   latitude: 48.14,
   longitude: 11.58,
   generationtime_ms: 0.09143352508544922,

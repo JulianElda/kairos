@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { WeatherData } from "$lib/weather.types";
+  import type { WeatherResponse } from "$lib/weather.types";
   type DailyWeatherProps = {
-    data: WeatherData;
+    data: WeatherResponse;
   };
 
   const { data }: DailyWeatherProps = $props();
