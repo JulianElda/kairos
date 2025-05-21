@@ -7,6 +7,16 @@
   const weatherData = data.weatherData as WeatherResponse;
 </script>
 
+<svelte:head>
+  <title>
+    {data.city} - {Math.floor(weatherData.current.temperature_2m)}{weatherData
+      .current_units.temperature_2m}
+  </title>
+  <meta
+    name="description"
+    content="kairos is a server-side rendered SvelteKit weather app by John Doe, using Vercel Geolocation and Open-Meteo to deliver real-time weather and city data" />
+</svelte:head>
+
 <div class="mx-auto flex min-h-full w-full max-w-lg flex-col space-y-1 sm:pt-4">
   {#if data.city}
     <Main
