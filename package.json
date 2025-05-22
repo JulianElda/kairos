@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@julianelda/scratchpad": "^1.8.3",
-    "@julianelda/stilo": "^1.0.1",
+    "@julianelda/stilo": "^1.0.2",
     "js-cookie": "^3.0.5"
   }
 }
