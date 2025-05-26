@@ -17,7 +17,7 @@
     content="kairos is a server-side rendered SvelteKit weather app by John Doe, using Vercel Geolocation and Open-Meteo to deliver real-time weather and city data" />
 </svelte:head>
 
-<div class="mx-auto flex min-h-full w-full max-w-lg flex-col space-y-1 sm:pt-4">
+<div class="mx-auto flex min-h-full w-full max-w-lg flex-col space-y-1 text-sm">
   {#if data.city}
     <Main
       data={weatherData}

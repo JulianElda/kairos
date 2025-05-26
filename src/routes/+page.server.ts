@@ -1,18 +1,10 @@
 import type { PageServerLoad } from "./$types";
-import { dev } from "$app/environment";
-import { CITY, LONGITUDE, LATITUDE } from "$env/static/private";
 import type { WeatherResponse } from "$lib/weather.types";
 
 export const load: PageServerLoad = async ({ fetch, request }) => {
-  const headers = request.headers;
-
-  const city = dev ? CITY : headers.get("X-Vercel-IP-City")!;
-  const latitude: string = dev
-    ? LATITUDE
-    : headers.get("X-Vercel-IP-Latitude")!;
-  const longitude: string = dev
-    ? LONGITUDE
-    : headers.get("X-Vercel-IP-Longitude")!;
+  const city = request.headers.get("X-Vercel-IP-City") ?? "Munich";
+  const latitude = request.headers.get("X-Vercel-IP-latitude") ?? "48.13743";
+  const longitude = request.headers.get("X-Vercel-IP-Longitude") ?? "11.57549";
 
   const weatherData: WeatherResponse = await fetch(
     `https://api.open-meteo.com/v1/forecast` +

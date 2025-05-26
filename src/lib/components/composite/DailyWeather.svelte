@@ -28,7 +28,7 @@
   }
 </script>
 
-<div class="flex flex-col space-y-4">
+<div class="flex flex-col space-y-4 px-2">
   {#each dailies as daily}
     <div class="flex h-12 flex-row items-center gap-4">
       <div class="flex-1 text-lg">

@@ -35,14 +35,14 @@
   }
 </script>
 
-<div class="flex space-x-4">
+<div class="flex space-x-2 sm:space-x-4">
   {#each hourlies as hourly}
-    <div class="flex flex-1 flex-col">
+    <div class="flex flex-1 flex-col items-center">
       <div class="text-center text-lg">
         {hourly.displayTime}
       </div>
       <div
-        class="flex size-16 w-full justify-center text-gray-700 dark:text-gray-200">
+        class="flex size-12 w-full justify-center text-gray-700 sm:size-16 dark:text-gray-200">
         <WeatherIcon
           code={data.current.weather_code}
           isDayIcon={hourly.isDayIcon} />
