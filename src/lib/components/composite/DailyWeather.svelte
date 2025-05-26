@@ -29,9 +29,11 @@
 </script>
 
 <div class="flex flex-col space-y-4 px-2">
-  {#each dailies as daily}
+  {#each dailies as daily, i}
     <div class="flex h-12 flex-row items-center gap-4">
-      <div class="flex-1 text-lg">
+      <div
+        class="flex-1 text-lg"
+        data-testid={"daily-day-" + i}>
         {daily.formattedDay}
       </div>
       <div class="-my-2 size-12">
@@ -39,10 +41,14 @@
           code={daily.weatherCode}
           isDayIcon={true} />
       </div>
-      <div class="w-20 text-end text-lg md:w-32">
+      <div
+        class="w-20 text-end text-lg md:w-32"
+        data-testid={"daily-min-" + i}>
         {daily.min}
       </div>
-      <div class="w-20 text-end text-lg md:w-32">
+      <div
+        class="w-20 text-end text-lg md:w-32"
+        data-testid={"daily-max-" + i}>
         {daily.max}
       </div>
     </div>

@@ -36,9 +36,11 @@
 </script>
 
 <div class="flex space-x-2 sm:space-x-4">
-  {#each hourlies as hourly}
+  {#each hourlies as hourly, i}
     <div class="flex flex-1 flex-col items-center">
-      <div class="text-center text-lg">
+      <div
+        class="text-center text-lg"
+        data-testid={"hourly-displaytime-" + i}>
         {hourly.displayTime}
       </div>
       <div
@@ -47,7 +49,9 @@
           code={data.current.weather_code}
           isDayIcon={hourly.isDayIcon} />
       </div>
-      <div class="text-center text-lg">
+      <div
+        class="text-center text-lg"
+        data-testid={"hourly-temperature-" + i}>
         {hourly.temperature}{data.hourly_units.temperature_2m}
       </div>
     </div>
