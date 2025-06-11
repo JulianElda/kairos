@@ -48,12 +48,12 @@ export const initialWeatherData: WeatherResponse = {
   },
 };
 
-export const weatherData = $state<{
-  data: WeatherResponse;
+export const store = $state<{
+  weatherData: WeatherResponse;
   location: string;
   isLoading: boolean;
 }>({
-  data: initialWeatherData,
+  weatherData: initialWeatherData,
   location: "",
   isLoading: false,
 });

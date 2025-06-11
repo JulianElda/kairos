@@ -4,10 +4,10 @@ import { mockWeatherData } from "$lib/mocks";
 import CurrentWeather from "./current-weather.svelte";
 
 describe("Current weather", () => {
-  vi.mock("$lib/weather.svelte", () => ({
-    get weatherData() {
+  vi.mock("$lib/store.svelte", () => ({
+    get store() {
       const mockState = $state({
-        data: mockWeatherData,
+        weatherData: mockWeatherData,
         location: "München",
       });
       return mockState;

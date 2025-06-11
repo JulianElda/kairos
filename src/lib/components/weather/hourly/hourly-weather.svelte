@@ -1,17 +1,17 @@
 <script lang="ts">
   import Hourly from "$lib/components/weather/hourly/hourly.svelte";
   import { formatToHourISOString } from "$lib/utils";
-  import { weatherData } from "$lib/weather.svelte";
+  import { store } from "$lib/store.svelte";
 
   const howMany = 5;
 
   const timeStart = $derived.by<number>(() => {
-    const currentTime = new Date(weatherData.data.current.time);
+    const currentTime = new Date(store.weatherData.current.time);
     currentTime.setMinutes(0);
 
     const roundedDownHours = formatToHourISOString(currentTime);
 
-    return weatherData.data.hourly.time.indexOf(roundedDownHours);
+    return store.weatherData.hourly.time.indexOf(roundedDownHours);
   });
 </script>
 

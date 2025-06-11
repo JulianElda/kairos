@@ -6,7 +6,7 @@
   import DailyWeather from "$lib/components/weather/daily/daily-weather.svelte";
   import Geolocator from "$lib/components/weather/geolocator.svelte";
   import HourlyWeather from "$lib/components/weather/hourly/hourly-weather.svelte";
-  import { weatherData } from "$lib/weather.svelte";
+  import { store } from "$lib/store.svelte";
   import type { WeatherResponse } from "$lib/weather.types";
 
   type MainProps = {
@@ -15,8 +15,8 @@
   };
 
   const { data, location }: MainProps = $props();
-  weatherData.data = data;
-  weatherData.location = location;
+  store.weatherData = data;
+  store.location = location;
 </script>
 
 <Card>

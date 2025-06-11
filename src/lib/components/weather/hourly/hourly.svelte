@@ -1,7 +1,7 @@
 <script lang="ts">
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
   import { isDayTime } from "$lib/utils";
-  import { weatherData } from "$lib/weather.svelte";
+  import { store } from "$lib/store.svelte";
 
   type HourlyProps = {
     index: number;
@@ -15,17 +15,19 @@
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
-    }).format(new Date(weatherData.data.hourly.time[timeIndex]))
+    }).format(new Date(store.weatherData.hourly.time[timeIndex]))
   );
 
   const temperature = $derived(
-    Math.floor(weatherData.data.hourly.temperature_2m[timeIndex])
+    Math.floor(store.weatherData.hourly.temperature_2m[timeIndex])
   );
-  const weatherCode = $derived(weatherData.data.hourly.weather_code[timeIndex]);
+  const weatherCode = $derived(
+    store.weatherData.hourly.weather_code[timeIndex]
+  );
   const isDayIcon = $derived(
-    isDayTime(weatherData.data.hourly.time[timeIndex], weatherData.data.daily)
+    isDayTime(store.weatherData.hourly.time[timeIndex], store.weatherData.daily)
   );
-  const units = $derived(weatherData.data.hourly_units.temperature_2m);
+  const units = $derived(store.weatherData.hourly_units.temperature_2m);
 </script>
 
 <div class="flex flex-1 flex-col items-center">
