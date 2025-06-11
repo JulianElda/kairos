@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from "vitest";
 import { screen, render } from "@testing-library/svelte";
 import { mockWeatherData } from "$lib/mocks";
-import HourlyWeather from "./HourlyWeather.svelte";
+import HourlyWeather from "./hourly-weather.svelte";
 
 describe("Hourly weather", () => {
   vi.mock("$lib/weather.svelte", () => ({

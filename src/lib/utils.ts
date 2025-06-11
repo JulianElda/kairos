@@ -40,3 +40,16 @@ export function formatDailyDisplayDay(days: string[]): string[] {
     ),
   ];
 }
+
+export function getOpenMeteoWeatherApiUrl(
+  latitude: string,
+  longitude: string
+): string {
+  return (
+    `https://api.open-meteo.com/v1/forecast` +
+    `?latitude=${latitude}&longitude=${longitude}` +
+    `&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min` +
+    `&hourly=temperature_2m,weather_code&current=temperature_2m,weather_code` +
+    `&timezone=auto`
+  );
+}

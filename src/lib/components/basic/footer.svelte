@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Hyperlink from "./Hyperlink.svelte";
+  import Hyperlink from "./hyperlink.svelte";
   import Cookies from "js-cookie";
   import { onMount } from "svelte";
   import { writable } from "svelte/store";

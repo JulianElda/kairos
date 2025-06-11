@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Main from "$lib/components/Main.svelte";
+  import Main from "$lib/components/main.svelte";
   import type { WeatherResponse } from "$lib/weather.types";
   import type { PageProps } from "./$types";
 
