@@ -1,25 +1,25 @@
 <script lang="ts">
-  import { getOpenMeteoWeatherApiUrl } from "$lib/utils";
   import { store } from "$lib/store.svelte";
-  import type { WeatherResponse } from "$lib/weather.types";
+  import { getLocationName, getWeatherData } from "$lib/apis";
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      (position: GeolocationPosition) => {
+      async (position: GeolocationPosition) => {
         store.isLoading = true;
-        fetch(
-          getOpenMeteoWeatherApiUrl(
-            `${position.coords.latitude}`,
-            `${position.coords.longitude}`
-          )
-        )
-          .then((res) => res.json())
-          .then((data: WeatherResponse) => {
-            store.weatherData = data;
-          })
-          .finally(() => {
-            store.isLoading = false;
-          });
+
+        const weatherData = await getWeatherData(
+          `${position.coords.latitude}`,
+          `${position.coords.longitude}`
+        );
+        store.weatherData = weatherData;
+
+        const location = await getLocationName(
+          `${position.coords.latitude}`,
+          `${position.coords.longitude}`
+        );
+        store.location = location.name;
+
+        store.isLoading = false;
       },
       () => undefined
     );

@@ -53,3 +53,13 @@ export function getOpenMeteoWeatherApiUrl(
     `&timezone=auto`
   );
 }
+
+export function getNonimatimReverseGeocodingUrl(
+  latitude: string,
+  longitude: string
+) {
+  return (
+    `https://nominatim.openstreetmap.org/reverse?format=json&zoom=12` +
+    `&lat=${latitude}&lon=${longitude}`
+  );
+}

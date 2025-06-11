@@ -1,3 +1,8 @@
+import type { NominatimResponse } from "./nominatim.types";
+import {
+  getNonimatimReverseGeocodingUrl,
+  getOpenMeteoWeatherApiUrl,
+} from "./utils";
 import type { WeatherResponse } from "./weather.types";
 
 export type GeocodingCityResponse = {
@@ -41,11 +46,16 @@ export async function getWeatherData(
   latitude: string,
   longitude: string
 ): Promise<WeatherResponse> {
-  return await fetch(
-    `https://api.open-meteo.com/v1/forecast` +
-      `?latitude=${latitude}&longitude=${longitude}` +
-      `&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min` +
-      `&hourly=temperature_2m,weather_code&current=temperature_2m,weather_code` +
-      `&timezone=auto`
-  ).then((res) => res.json());
+  return await fetch(getOpenMeteoWeatherApiUrl(latitude, longitude)).then(
+    (res) => res.json()
+  );
+}
+
+export async function getLocationName(
+  latitude: string,
+  longitude: string
+): Promise<NominatimResponse> {
+  return await fetch(getNonimatimReverseGeocodingUrl(latitude, longitude)).then(
+    (res) => res.json()
+  );
 }

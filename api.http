@@ -1,0 +1,40 @@
+### Nominatim Reverse Geocoding Request
+GET {{nominatimUrl}}?format=json&lat={{latitude}}&lon={{longitude}}&zoom={{zoom}}
+
+### Open-Meteo
+GET {{openMeteoUrl}}?timezone=auto&latitude={{latitude}}&longitude={{longitude}}&{{openMeteoDailyOptions}}&{{openMeteoHourlyOptions}}
+
+# Variables
+@nominatimUrl = https://nominatim.openstreetmap.org/reverse
+@openMeteoUrl = https://api.open-meteo.com/v1/forecast
+@openMeteoDailyOptions= daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min
+@openMeteoHourlyOptions= hourly=temperature_2m,weather_code&current=temperature_2m,weather_code
+@zoom = 12
+
+# München
+#@latitude  = 48.13743
+#@longitude = 11.57549
+
+# Rothenburg ob der Tauber
+#@latitude  = 49.37885
+#@longitude = 10.18711
+
+# Kirchheim bei München
+#@latitude  = 48.17656
+#@longitude = 11.75563
+
+# K2
+#@latitude  = 35.88054
+#@longitude = 76.51595
+
+# Sistine Chapel
+#@latitude  = 41.90320
+#@longitude = 12.45486
+
+# Middle Andaman
+@latitude  = 12.56625 
+@longitude = 92.81811
+
+# Mariana Trench -> no geocode
+#@latitude  = 16.69112
+#@longitude = 147.80337
