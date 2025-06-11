@@ -14,10 +14,10 @@
   </title>
   <meta
     name="description"
-    content="kairos is a server-side rendered SvelteKit weather app by John Doe, using Vercel Geolocation and Open-Meteo to deliver real-time weather and city data" />
+    content="kairos is a server-side rendered SvelteKit weather app by Julius Polar, using Vercel Geolocation and Open-Meteo to deliver real-time weather and city data" />
 </svelte:head>
 
-<div class="mx-auto flex min-h-full w-full max-w-lg flex-col space-y-1 text-sm">
+<div class="mx-auto flex min-h-full w-full max-w-sm flex-col md:max-w-md">
   {#if data.city}
     <Main
       data={weatherData}

@@ -5,8 +5,8 @@
   import { store } from "$lib/store.svelte";
 </script>
 
-<div class="flex justify-center gap-8">
-  <div class="flex flex-col items-end justify-center space-y-2">
+<div class="flex justify-center gap-6">
+  <div class="flex flex-col items-end justify-center gap-2">
     <h1
       class="text-end text-3xl font-bold"
       data-testid="city-name">
@@ -20,8 +20,8 @@
     </div>
   </div>
 
-  <div class="flex flex-col items-center justify-end space-y-2">
-    <div class="flex size-20 text-gray-700 sm:size-24 dark:text-gray-200">
+  <div class="flex flex-col items-center justify-end gap-2">
+    <div class="flex size-16 text-gray-700 dark:text-gray-200">
       <WeatherIcon
         code={store.weatherData.current.weather_code}
         isDayIcon={isDayTime(

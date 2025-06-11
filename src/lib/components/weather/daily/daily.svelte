@@ -27,18 +27,18 @@
     data-testid={"daily-day-" + index}>
     {formattedDay}
   </div>
-  <div class="-my-2 size-12">
+  <div class="size-12">
     <WeatherIcon
       code={weatherCode}
       isDayIcon={true} />
   </div>
   <div
-    class="w-20 text-end text-lg md:w-32"
+    class="w-16 text-end text-lg"
     data-testid={"daily-min-" + index}>
     {min}{store.weatherData.daily_units.temperature_2m_min}
   </div>
   <div
-    class="w-20 text-end text-lg md:w-32"
+    class="w-16 text-end text-lg"
     data-testid={"daily-max-" + index}>
     {max}{store.weatherData.daily_units.temperature_2m_max}
   </div>

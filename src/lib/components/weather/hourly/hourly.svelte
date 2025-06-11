@@ -30,20 +30,20 @@
   const units = $derived(store.weatherData.hourly_units.temperature_2m);
 </script>
 
-<div class="flex flex-1 flex-col items-center">
+<div class="flex flex-1 flex-col items-center gap-2">
   <div
-    class="text-center text-lg"
+    class="text-center"
     data-testid={"hourly-displaytime-" + index}>
     {displayTime}
   </div>
   <div
-    class="flex size-12 w-full justify-center text-gray-700 sm:size-16 dark:text-gray-200">
+    class="flex size-16 w-full justify-center text-gray-700 dark:text-gray-200">
     <WeatherIcon
       code={weatherCode}
       {isDayIcon} />
   </div>
   <div
-    class="text-center text-lg"
+    class="text-center"
     data-testid={"hourly-temperature-" + index}>
     {temperature}{units}
   </div>

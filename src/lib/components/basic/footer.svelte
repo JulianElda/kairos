@@ -31,7 +31,7 @@
 </script>
 
 <footer
-  class="max-w-lg bg-gray-50 p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto sm:h-10 dark:bg-gray-800">
+  class="max-w-sm bg-gray-50 p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto sm:h-10 md:max-w-md dark:bg-gray-800">
   <div class="flex">
     {#if $darkMode}
       <button
