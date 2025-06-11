@@ -15,7 +15,7 @@
   });
 </script>
 
-<div class="flex space-x-2 sm:space-x-4">
+<div class="flex justify-center gap-4">
   {#each Array.from({ length: howMany }, (_, i) => i + timeStart) as timeIndex, index}
     <Hourly
       {timeIndex}

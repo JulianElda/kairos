@@ -30,7 +30,7 @@
   const units = $derived(store.weatherData.hourly_units.temperature_2m);
 </script>
 
-<div class="flex flex-1 flex-col items-center gap-2">
+<div class="flex flex-col items-center">
   <div
     class="text-center"
     data-testid={"hourly-displaytime-" + index}>

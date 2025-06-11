@@ -21,7 +21,7 @@
   );
 </script>
 
-<div class="flex h-12 flex-row items-center gap-4">
+<div class="flex h-12 flex-row items-center gap-4 p-1">
   <div
     class="flex-1 text-lg"
     data-testid={"daily-day-" + index}>
