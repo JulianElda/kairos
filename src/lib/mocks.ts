@@ -1,4 +1,4 @@
-import type { WeatherResponse } from "./weather.types";
+import type { WeatherResponse } from "./types/weather.types";
 
 export const mockWeatherData: WeatherResponse = {
   latitude: 48.14,

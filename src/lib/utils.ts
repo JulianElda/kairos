@@ -1,4 +1,4 @@
-import type { WeatherDaily } from "./weather.types";
+import type { WeatherDaily } from "./types/weather.types";
 
 export function formatToHourISOString(date: Date): string {
   const year = date.getFullYear();

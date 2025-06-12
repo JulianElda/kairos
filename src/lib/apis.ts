@@ -1,9 +1,9 @@
-import type { NominatimResponse } from "./nominatim.types";
+import type { NominatimResponse } from "./types/nominatim.types";
+import type { WeatherResponse } from "./types/weather.types";
 import {
   getNonimatimReverseGeocodingUrl,
   getOpenMeteoWeatherApiUrl,
 } from "./utils";
-import type { WeatherResponse } from "./weather.types";
 
 export type GeocodingCityResponse = {
   id: number;
@@ -27,20 +27,6 @@ export type GeocodingCityResponse = {
   admin3: string;
   admin4: string;
 };
-
-export async function searchCityByName(
-  cityName: string
-): Promise<GeocodingCityResponse[]> {
-  return await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search` +
-      `?name=${cityName}` +
-      `&count=1` +
-      `&language=en` +
-      `&format=json`
-  )
-    .then((res) => res.json())
-    .then((res) => res.results as GeocodingCityResponse[]);
-}
 
 export async function getWeatherData(
   latitude: string,

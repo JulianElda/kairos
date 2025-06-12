@@ -7,7 +7,7 @@
   import Geolocator from "$lib/components/weather/geolocator.svelte";
   import HourlyWeather from "$lib/components/weather/hourly/hourly-weather.svelte";
   import { store } from "$lib/store.svelte";
-  import type { WeatherResponse } from "$lib/weather.types";
+  import type { WeatherResponse } from "$lib/types/weather.types";
 
   type MainProps = {
     data: WeatherResponse;

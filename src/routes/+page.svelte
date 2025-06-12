@@ -1,6 +1,6 @@
 <script lang="ts">
   import Main from "$lib/components/main.svelte";
-  import type { WeatherResponse } from "$lib/weather.types";
+  import type { WeatherResponse } from "$lib/types/weather.types";
   import type { PageProps } from "./$types";
 
   const { data }: PageProps = $props();
@@ -17,7 +17,8 @@
     content="kairos is a server-side rendered SvelteKit weather app by Julius Polar, using Vercel Geolocation and Open-Meteo to deliver real-time weather and city data" />
 </svelte:head>
 
-<div class="mx-auto flex min-h-full w-full max-w-sm flex-col md:max-w-md">
+<div
+  class="mx-auto flex min-h-full w-full max-w-sm flex-col md:max-w-md md:pb-16">
   {#if data.city}
     <Main
       data={weatherData}

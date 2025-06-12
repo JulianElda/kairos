@@ -1,8 +1,12 @@
 <script lang="ts">
   import { store } from "$lib/store.svelte";
   import { getLocationName, getWeatherData } from "$lib/apis";
+  import { onMount } from "svelte";
 
-  if (navigator.geolocation) {
+  onMount(async () => {
+    if (!navigator.geolocation) {
+      return;
+    }
     navigator.geolocation.getCurrentPosition(
       async (position: GeolocationPosition) => {
         store.isLoading = true;
@@ -23,5 +27,5 @@
       },
       () => undefined
     );
-  }
+  });
 </script>

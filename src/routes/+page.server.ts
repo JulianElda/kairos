@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import type { WeatherResponse } from "$lib/weather.types";
+import type { WeatherResponse } from "$lib/types/weather.types";
 import { getOpenMeteoWeatherApiUrl } from "$lib/utils";
 
 //const DEFAULT_LATITUDE = "48.13743"

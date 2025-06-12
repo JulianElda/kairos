@@ -1,8 +1,8 @@
 <script lang="ts">
-  import GithubMarkDark from "$lib/icons/github-mark-dark.svelte";
-  import GithubMarkLight from "$lib/icons/github-mark-light.svelte";
-  import ThemeMoon from "$lib/icons/theme-moon.svelte";
-  import ThemeSun from "$lib/icons/theme-sun.svelte";
+  import GithubMarkDark from "$lib/components/icons/github-mark-dark.svelte";
+  import GithubMarkLight from "$lib/components/icons/github-mark-light.svelte";
+  import ThemeMoon from "$lib/components/icons/theme-moon.svelte";
+  import ThemeSun from "$lib/components/icons/theme-sun.svelte";
   import Hyperlink from "./hyperlink.svelte";
   import Cookies from "js-cookie";
   import { onMount } from "svelte";
@@ -39,7 +39,7 @@
 
 {#if !isLoading}
   <footer
-    class="flex max-w-sm items-center bg-gray-50 p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto dark:bg-gray-800">
+    class="flex max-w-sm items-center bg-gray-50 p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto md:max-w-md dark:bg-gray-800">
     <div class="flex flex-1 items-center gap-1">
       <a
         href="https://github.com/JulianElda/kairos"
