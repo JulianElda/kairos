@@ -16,8 +16,8 @@ describe("Daily weather", () => {
 
   test("show day of the week, minimum and maximum temperature", () => {
     render(DailyWeather);
-    expect(screen.getByTestId("daily-day-0")).toHaveTextContent("Today");
-    expect(screen.getByTestId("daily-day-1")).toHaveTextContent("Tomorrow");
+    expect(screen.getByTestId("daily-day-0")).toHaveTextContent("Tuesday");
+    expect(screen.getByTestId("daily-day-1")).toHaveTextContent("Wednesday");
     expect(screen.getByTestId("daily-day-2")).toHaveTextContent("Thursday");
     expect(screen.getByTestId("daily-day-3")).toHaveTextContent("Friday");
     expect(screen.getByTestId("daily-day-4")).toHaveTextContent("Saturday");
