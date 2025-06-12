@@ -13,6 +13,7 @@
         (!match && window.matchMedia?.("(prefers-color-scheme: dark)").matches);
 
       document.documentElement.classList.add(isDark ? "dark" : "");
+      document.cookie = `dark-theme=${isDark}`;
     })();
   </script>
 </svelte:head>

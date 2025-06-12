@@ -3,5 +3,7 @@
 </script>
 
 {#if store.isLoading}
-  <div class="absolute inset-0 size-full animate-pulse bg-slate-500/50"></div>
+  <div
+    class="absolute inset-0 size-full animate-pulse bg-slate-100/50 dark:bg-slate-500/50">
+  </div>
 {/if}
