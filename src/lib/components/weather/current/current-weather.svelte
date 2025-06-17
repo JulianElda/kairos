@@ -5,6 +5,14 @@
   import { store } from "$lib/store.svelte";
 </script>
 
+<svelte:head>
+  <title>
+    {store.location} - {Math.floor(
+      store.weatherData.current.temperature_2m
+    )}{store.weatherData.current_units.temperature_2m}
+  </title>
+</svelte:head>
+
 <div class="flex justify-center gap-6">
   <div class="flex flex-col items-end justify-center gap-2">
     <h1
