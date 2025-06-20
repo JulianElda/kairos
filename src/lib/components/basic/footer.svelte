@@ -39,7 +39,7 @@
 
 {#if !isLoading}
   <footer
-    class="flex max-w-sm items-center bg-gray-50 p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto md:max-w-md dark:bg-gray-800">
+    class="bg-app-background-light dark:bg-app-background-dark flex max-w-sm items-center p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto sm:justify-between md:max-w-md">
     <div class="flex flex-1 items-center gap-1">
       <a
         href="https://github.com/JulianElda/kairos"
@@ -48,7 +48,7 @@
         rel="noreferrer"
         class={[
           "size-8 rounded-md p-1",
-          $darkMode ? "bg-white" : "bg-slate-700",
+          $darkMode ? "bg-app-background-light" : "bg-app-background-dark",
         ]}>
         {#if $darkMode}
           <GithubMarkDark />
@@ -66,7 +66,7 @@
       <button
         aria-label="toggle light mode"
         data-testid="footer-toggle-light"
-        class="size-8 cursor-pointer rounded-md bg-white p-1 text-gray-900"
+        class="bg-app-background-light text-app-text-light size-8 cursor-pointer rounded-md p-1"
         onclick={() => darkMode.update((value) => !value)}>
         <ThemeSun />
       </button>
@@ -74,7 +74,7 @@
       <button
         aria-label="toggle dark mode"
         data-testid="footer-toggle-dark"
-        class="size-8 cursor-pointer rounded-md bg-slate-700 p-1 text-white"
+        class="bg-app-background-dark text-app-text-dark size-8 cursor-pointer rounded-md p-1"
         onclick={() => darkMode.update((value) => !value)}>
         <ThemeMoon />
       </button>

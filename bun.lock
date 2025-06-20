@@ -4,7 +4,8 @@
     "": {
       "name": "kairos",
       "dependencies": {
-        "@julianelda/scratchpad": "^1.8.3",
+        "@julianelda/chroma": "^1.0.0",
+        "@julianelda/scratchpad": "^1.10.1",
         "@julianelda/stilo": "^1.0.2",
         "js-cookie": "^3.0.5",
       },
@@ -159,7 +160,9 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
-    "@julianelda/scratchpad": ["@julianelda/scratchpad@1.8.3", "", { "dependencies": { "ajv": "^8.17.1", "js-cookie": "^3.0.5" }, "peerDependencies": { "clsx": "^2.1.1", "react": "^19.0.0", "react-dom": "^19.0.0" } }, "sha512-ADLcLUlXylb9eWiu7Bwy8lWGrNsg8SBKt7Uswas3QnCYluZTozFMRskbx9UqORmp6rGFeV0DpCy9p6vq8MTB0w=="],
+    "@julianelda/chroma": ["@julianelda/chroma@1.0.0", "", {}, "sha512-hNqjlL8w8mtPeyexkhdiQOv8Xcs+r3jnuYFX4tohR0tNnI73eNeJlJL1KDZTNUrhVZBzPNg2srhqEEXForAhFg=="],
+
+    "@julianelda/scratchpad": ["@julianelda/scratchpad@1.10.1", "", { "dependencies": { "@julianelda/chroma": "^1.0.0", "@julianelda/scratchpad": "^1.10.0", "ajv": "^8.17.1", "js-cookie": "^3.0.5" }, "peerDependencies": { "clsx": "^2.1.1", "react": "^19.0.0", "react-dom": "^19.0.0" } }, "sha512-wMKIOPPUp7ZTPngd6YplFojR7fauaunVvHm/3YnBeib5P+FnKbNzrOVFE2uY8YTha2cNG07xAWLOWe/Pk5ASJw=="],
 
     "@julianelda/stilo": ["@julianelda/stilo@1.0.2", "", {}, "sha512-/FP8ciVnP1FBw5X9nVeng43cbV57AxOFNv1whJAdLlh+9jY9DQL4NxR6chtCuEi3rJFfFUZ7YwaZ4pe2lpwi8w=="],
 

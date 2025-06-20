@@ -11,7 +11,7 @@
   {href}
   target="_blank"
   rel="noreferrer"
-  class="text-sky-950 decoration-dotted hover:text-sky-800 hover:underline dark:text-sky-100 dark:hover:text-sky-400">
+  class="text-primary-900 dark:text-primary-100 hover:text-primary-700 dark:hover:text-primary-300 decoration-dotted hover:underline">
   {title}
   {asterisk === false ? "" : "*"}
 </a>

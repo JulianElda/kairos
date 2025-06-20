@@ -1,7 +1,6 @@
 {
   "name": "kairos",
-  "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
@@ -44,7 +43,8 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
-    "@julianelda/scratchpad": "^1.8.3",
+    "@julianelda/chroma": "^1.0.0",
+    "@julianelda/scratchpad": "^1.10.1",
     "@julianelda/stilo": "^1.0.2",
     "js-cookie": "^3.0.5"
   }

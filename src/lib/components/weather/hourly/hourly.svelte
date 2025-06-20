@@ -36,8 +36,7 @@
     data-testid={"hourly-displaytime-" + index}>
     {displayTime}
   </div>
-  <div
-    class="flex size-16 w-full justify-center text-gray-700 dark:text-gray-200">
+  <div class="flex size-16 w-full justify-center">
     <WeatherIcon
       code={weatherCode}
       {isDayIcon} />

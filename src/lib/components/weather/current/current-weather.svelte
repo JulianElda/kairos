@@ -29,7 +29,7 @@
   </div>
 
   <div class="flex flex-col items-center justify-end gap-2">
-    <div class="flex size-16 text-gray-700 dark:text-gray-200">
+    <div class="flex size-16">
       <WeatherIcon
         code={store.weatherData.current.weather_code}
         isDayIcon={isDayTime(
