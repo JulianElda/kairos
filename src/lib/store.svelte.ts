@@ -1,59 +1,59 @@
 import type { WeatherResponse } from "./types/weather.types";
 
 export const initialWeatherData: WeatherResponse = {
-  latitude: 0,
-  longitude: 0,
-  generationtime_ms: 0,
-  utc_offset_seconds: 0,
-  timezone: "",
-  timezone_abbreviation: "",
-  elevation: 0,
-  current_units: {
-    time: "iso8601",
-    interval: "minutes",
-    temperature_2m: "°C",
-    weather_code: "wmo",
-  },
   current: {
-    time: "",
     interval: 0,
     temperature_2m: 0,
+    time: "",
     weather_code: 0,
   },
-  hourly_units: {
-    time: "iso8601",
+  current_units: {
+    interval: "minutes",
     temperature_2m: "°C",
+    time: "iso8601",
     weather_code: "wmo",
   },
-  hourly: {
+  daily: {
+    sunrise: [],
+    sunset: [],
+    temperature_2m_max: [],
+    temperature_2m_min: [],
     time: [],
-    temperature_2m: [],
     weather_code: [],
   },
   daily_units: {
-    time: "iso8601",
     sunrise: "iso8601",
     sunset: "iso8601",
-    weather_code: "wmo",
     temperature_2m_max: "°C",
     temperature_2m_min: "°C",
+    time: "iso8601",
+    weather_code: "wmo",
   },
-  daily: {
+  elevation: 0,
+  generationtime_ms: 0,
+  hourly: {
+    temperature_2m: [],
     time: [],
-    sunrise: [],
-    sunset: [],
     weather_code: [],
-    temperature_2m_max: [],
-    temperature_2m_min: [],
   },
+  hourly_units: {
+    temperature_2m: "°C",
+    time: "iso8601",
+    weather_code: "wmo",
+  },
+  latitude: 0,
+  longitude: 0,
+  timezone: "",
+  timezone_abbreviation: "",
+  utc_offset_seconds: 0,
 };
 
 export const store = $state<{
-  weatherData: WeatherResponse;
-  location: string;
   isLoading: boolean;
+  location: string;
+  weatherData: WeatherResponse;
 }>({
-  weatherData: initialWeatherData,
-  location: "",
   isLoading: false,
+  location: "",
+  weatherData: initialWeatherData,
 });

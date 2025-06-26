@@ -1,40 +1,32 @@
 import type { NominatimResponse } from "./types/nominatim.types";
 import type { WeatherResponse } from "./types/weather.types";
+
 import {
   getNonimatimReverseGeocodingUrl,
   getOpenMeteoWeatherApiUrl,
-} from "./utils";
+} from "./utilities";
 
-export type GeocodingCityResponse = {
-  id: number;
-  name: string;
-  latitude: number;
-  longitude: number;
+export interface GeocodingCityResponse {
+  admin1: string;
+  admin1_id: number;
+  admin2: string;
+  admin2_id: number;
+  admin3: string;
+  admin3_id: number;
+  admin4: string;
+  admin4_id: number;
+  country: string;
+  country_code: string;
+  country_id: number;
   elevation: number;
   feature_code: string;
-  country_code: string;
-  admin1_id: number;
-  admin2_id: number;
-  admin3_id: number;
-  admin4_id: number;
-  timezone: string;
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
   population: number;
   postcodes: string[];
-  country_id: number;
-  country: string;
-  admin1: string;
-  admin2: string;
-  admin3: string;
-  admin4: string;
-};
-
-export async function getWeatherData(
-  latitude: string,
-  longitude: string
-): Promise<WeatherResponse> {
-  return await fetch(getOpenMeteoWeatherApiUrl(latitude, longitude)).then(
-    (res) => res.json()
-  );
+  timezone: string;
 }
 
 export async function getLocationName(
@@ -42,6 +34,15 @@ export async function getLocationName(
   longitude: string
 ): Promise<NominatimResponse> {
   return await fetch(getNonimatimReverseGeocodingUrl(latitude, longitude)).then(
-    (res) => res.json()
+    (result) => result.json()
+  );
+}
+
+export async function getWeatherData(
+  latitude: string,
+  longitude: string
+): Promise<WeatherResponse> {
+  return await fetch(getOpenMeteoWeatherApiUrl(latitude, longitude)).then(
+    (result) => result.json()
   );
 }

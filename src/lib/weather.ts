@@ -1,68 +1,68 @@
 import type { Component } from "svelte";
+
 import DayClearIcon from "$lib/components/icons/00-day.svelte";
+import NightClearIcon from "$lib/components/icons/00-night.svelte";
 import DayMainlyClearIcon from "$lib/components/icons/01-day.svelte";
+import NightMainlyClearIcon from "$lib/components/icons/01-night.svelte";
 import DayPartlyCloudyIcon from "$lib/components/icons/02-day.svelte";
+import NightPartlyCloudyIcon from "$lib/components/icons/02-night.svelte";
 import DayOvercastIcon from "$lib/components/icons/03-day.svelte";
+import NightOvercastIcon from "$lib/components/icons/03-night.svelte";
 import DayFogIcon from "$lib/components/icons/45-day.svelte";
+import NightFogIcon from "$lib/components/icons/45-night.svelte";
 import DayRimeFogIcon from "$lib/components/icons/48-day.svelte";
+import NightRimeFogIcon from "$lib/components/icons/48-night.svelte";
 import DayLightDrizzleIcon from "$lib/components/icons/51-day.svelte";
+import NightLightDrizzleIcon from "$lib/components/icons/51-night.svelte";
 import DayModerateDrizzleIcon from "$lib/components/icons/53-day.svelte";
+import NightModerateDrizzleIcon from "$lib/components/icons/53-night.svelte";
 import DayDenseDrizzleIcon from "$lib/components/icons/55-day.svelte";
+import NightDenseDrizzleIcon from "$lib/components/icons/55-night.svelte";
 //import DayLightFreezingDrizzleIcon from "$lib/icons/56-day.svelte";
 //import DayDenseFreezingDrizzleIcon from "$lib/icons/57-day.svelte";
 import DaySlightRainIcon from "$lib/components/icons/61-day.svelte";
-import DayModerateRainIcon from "$lib/components/icons/63-day.svelte";
-import DayHeavyRainIcon from "$lib/components/icons/65-day.svelte";
-import DayLightFreezingRainIcon from "$lib/components/icons/66-day.svelte";
-import DayHeavyFreezingRainIcon from "$lib/components/icons/67-day.svelte";
-import DaySlightSnowFallIcon from "$lib/components/icons/71-day.svelte";
-import DayModerateSnowFallIcon from "$lib/components/icons/73-day.svelte";
-import DayHeavySnowFallIcon from "$lib/components/icons/75-day.svelte";
-//import DaySnowGrainsIcon from "$lib/icons/77-day.svelte";
-import DaySlightRainShowersIcon from "$lib/components/icons/80-day.svelte";
-import DayModerateRainShowersIcon from "$lib/components/icons/81-day.svelte";
-import DayViolentRainShowersIcon from "$lib/components/icons/82-day.svelte";
-import DaySlightSnowShowersIcon from "$lib/components/icons/85-day.svelte";
-import DayHeavySnowShowersIcon from "$lib/components/icons/86-day.svelte";
-import DayThunderstormIcon from "$lib/components/icons/95-day.svelte";
-import DayThunderstormSlightHailIcon from "$lib/components/icons/96-day.svelte";
-import DayThunderstormHeavyHailIcon from "$lib/components/icons/99-day.svelte";
-
-import NightClearIcon from "$lib/components/icons/00-night.svelte";
-import NightMainlyClearIcon from "$lib/components/icons/01-night.svelte";
-import NightPartlyCloudyIcon from "$lib/components/icons/02-night.svelte";
-import NightOvercastIcon from "$lib/components/icons/03-night.svelte";
-import NightFogIcon from "$lib/components/icons/45-night.svelte";
-import NightRimeFogIcon from "$lib/components/icons/48-night.svelte";
-import NightLightDrizzleIcon from "$lib/components/icons/51-night.svelte";
-import NightModerateDrizzleIcon from "$lib/components/icons/53-night.svelte";
-import NightDenseDrizzleIcon from "$lib/components/icons/55-night.svelte";
 //import NightLightFreezingDrizzleIcon from "$lib/icons/56-night.svelte";
 //import NightDenseFreezingDrizzleIcon from "$lib/icons/57-night.svelte";
 import NightSlightRainIcon from "$lib/components/icons/61-night.svelte";
+import DayModerateRainIcon from "$lib/components/icons/63-day.svelte";
 import NightModerateRainIcon from "$lib/components/icons/63-night.svelte";
+import DayHeavyRainIcon from "$lib/components/icons/65-day.svelte";
 import NightHeavyRainIcon from "$lib/components/icons/65-night.svelte";
+import DayLightFreezingRainIcon from "$lib/components/icons/66-day.svelte";
 import NightLightFreezingRainIcon from "$lib/components/icons/66-night.svelte";
+import DayHeavyFreezingRainIcon from "$lib/components/icons/67-day.svelte";
 import NightHeavyFreezingRainIcon from "$lib/components/icons/67-night.svelte";
+import DaySlightSnowFallIcon from "$lib/components/icons/71-day.svelte";
 import NightSlightSnowFallIcon from "$lib/components/icons/71-night.svelte";
+import DayModerateSnowFallIcon from "$lib/components/icons/73-day.svelte";
 import NightModerateSnowFallIcon from "$lib/components/icons/73-night.svelte";
+import DayHeavySnowFallIcon from "$lib/components/icons/75-day.svelte";
 import NightHeavySnowFallIcon from "$lib/components/icons/75-night.svelte";
+//import DaySnowGrainsIcon from "$lib/icons/77-day.svelte";
+import DaySlightRainShowersIcon from "$lib/components/icons/80-day.svelte";
 //import NightSnowGrainsIcon from "$lib/icons/77-night.svelte";
 import NightSlightRainShowersIcon from "$lib/components/icons/80-night.svelte";
+import DayModerateRainShowersIcon from "$lib/components/icons/81-day.svelte";
 import NightModerateRainShowersIcon from "$lib/components/icons/81-night.svelte";
+import DayViolentRainShowersIcon from "$lib/components/icons/82-day.svelte";
 import NightViolentRainShowersIcon from "$lib/components/icons/82-night.svelte";
+import DaySlightSnowShowersIcon from "$lib/components/icons/85-day.svelte";
 import NightSlightSnowShowersIcon from "$lib/components/icons/85-night.svelte";
+import DayHeavySnowShowersIcon from "$lib/components/icons/86-day.svelte";
 import NightHeavySnowShowersIcon from "$lib/components/icons/86-night.svelte";
+import DayThunderstormIcon from "$lib/components/icons/95-day.svelte";
 import NightThunderstormIcon from "$lib/components/icons/95-night.svelte";
+import DayThunderstormSlightHailIcon from "$lib/components/icons/96-day.svelte";
 import NightThunderstormSlightHailIcon from "$lib/components/icons/96-night.svelte";
+import DayThunderstormHeavyHailIcon from "$lib/components/icons/99-day.svelte";
 import NightThunderstormHeavyHailIcon from "$lib/components/icons/99-night.svelte";
 
-type WeatherDescription = {
+interface WeatherDescription {
   code: number;
   description: string;
   icon?: Component;
   iconNight?: Component;
-};
+}
 
 export const weatherDescriptions: Record<number, WeatherDescription> = {
   0: {

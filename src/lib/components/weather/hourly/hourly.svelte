@@ -1,7 +1,7 @@
 <script lang="ts">
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
-  import { isDayTime } from "$lib/utils";
   import { store } from "$lib/store.svelte";
+  import { isDayTime } from "$lib/utilities";
 
   type HourlyProps = {
     index: number;

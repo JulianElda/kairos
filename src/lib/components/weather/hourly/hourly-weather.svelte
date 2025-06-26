@@ -1,7 +1,7 @@
 <script lang="ts">
   import Hourly from "$lib/components/weather/hourly/hourly.svelte";
-  import { formatToHourISOString } from "$lib/utils";
   import { store } from "$lib/store.svelte";
+  import { formatToHourISOString } from "$lib/utilities";
 
   const howMany = 5;
 

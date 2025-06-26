@@ -1,9 +1,9 @@
 <script lang="ts">
-  type HyperlinkProps = {
+  interface HyperlinkProps {
     href: string;
     title: string;
     asterisk?: boolean;
-  };
+  }
   const { href, title, asterisk }: HyperlinkProps = $props();
 </script>
 

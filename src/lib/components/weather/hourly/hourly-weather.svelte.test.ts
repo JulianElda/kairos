@@ -1,14 +1,14 @@
-import { describe, expect, test, vi } from "vitest";
-import { screen, render } from "@testing-library/svelte";
+import HourlyWeather from "$lib/components/weather/hourly/hourly-weather.svelte";
 import { mockWeatherData } from "$lib/mocks";
-import HourlyWeather from "./hourly-weather.svelte";
+import { render, screen } from "@testing-library/svelte";
+import { describe, expect, test, vi } from "vitest";
 
 describe("Hourly weather", () => {
   vi.mock("$lib/store.svelte", () => ({
     get store() {
       const mockState = $state({
-        weatherData: mockWeatherData,
         location: "München",
+        weatherData: mockWeatherData,
       });
       return mockState;
     },

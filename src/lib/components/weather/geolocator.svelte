@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { store } from "$lib/store.svelte";
   import { getLocationName, getWeatherData } from "$lib/apis";
+  import { store } from "$lib/store.svelte";
   import { onMount } from "svelte";
 
   onMount(async () => {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
-  import { formatDailyDisplayDay } from "$lib/utils";
   import { store } from "$lib/store.svelte";
+  import { formatDailyDisplayDay } from "$lib/utilities";
 
   type DailyProps = {
     index: number;

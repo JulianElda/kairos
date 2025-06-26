@@ -1,8 +1,8 @@
 <script lang="ts">
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
-  import { isDayTime } from "$lib/utils";
-  import { weatherDescriptions } from "$lib/weather";
   import { store } from "$lib/store.svelte";
+  import { isDayTime } from "$lib/utilities";
+  import { weatherDescriptions } from "$lib/weather";
 </script>
 
 <svelte:head>

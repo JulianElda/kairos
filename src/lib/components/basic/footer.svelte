@@ -3,10 +3,11 @@
   import GithubMarkLight from "$lib/components/icons/github-mark-light.svelte";
   import ThemeMoon from "$lib/components/icons/theme-moon.svelte";
   import ThemeSun from "$lib/components/icons/theme-sun.svelte";
-  import Hyperlink from "./hyperlink.svelte";
   import Cookies from "js-cookie";
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
+
+  import Hyperlink from "./hyperlink.svelte";
 
   const COOKIE_KEY = "dark-theme";
   const DARKMODE_CLASS = "dark";
@@ -16,7 +17,7 @@
 
   onMount(() => {
     const cookieValue = Cookies.get(COOKIE_KEY);
-    const prefersDark = window?.matchMedia?.(
+    const prefersDark = globalThis?.matchMedia?.(
       "(prefers-color-scheme: dark)"
     ).matches;
 
