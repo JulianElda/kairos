@@ -1,6 +1,8 @@
 <script lang="ts">
-  import Main from "$lib/components/main.svelte";
   import type { WeatherResponse } from "$lib/types/weather.types";
+
+  import Main from "$lib/components/main.svelte";
+
   import type { PageProps } from "./$types";
 
   const { data }: PageProps = $props();

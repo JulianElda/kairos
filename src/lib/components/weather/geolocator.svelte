@@ -24,8 +24,7 @@
         store.location = location.name;
 
         store.isLoading = false;
-      },
-      () => undefined
+      }
     );
   });
 </script>

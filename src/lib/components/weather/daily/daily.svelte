@@ -3,9 +3,9 @@
   import { store } from "$lib/store.svelte";
   import { formatDailyDisplayDay } from "$lib/utilities";
 
-  type DailyProps = {
+  interface DailyProps {
     index: number;
-  };
+  }
 
   const { index }: DailyProps = $props();
 

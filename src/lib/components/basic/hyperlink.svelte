@@ -1,10 +1,10 @@
 <script lang="ts">
   interface HyperlinkProps {
+    asterisk?: boolean;
     href: string;
     title: string;
-    asterisk?: boolean;
   }
-  const { href, title, asterisk }: HyperlinkProps = $props();
+  const { asterisk, href, title }: HyperlinkProps = $props();
 </script>
 
 <a

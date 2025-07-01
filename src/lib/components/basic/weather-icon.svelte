@@ -1,10 +1,10 @@
 <script lang="ts">
   import { weatherDescriptions } from "$lib/weather";
 
-  type WeatherDescriptionProps = {
+  interface WeatherDescriptionProps {
     code: number;
     isDayIcon: boolean;
-  };
+  }
   const { code, isDayIcon }: WeatherDescriptionProps = $props();
 </script>
 

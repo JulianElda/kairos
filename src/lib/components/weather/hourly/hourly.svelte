@@ -3,18 +3,18 @@
   import { store } from "$lib/store.svelte";
   import { isDayTime } from "$lib/utilities";
 
-  type HourlyProps = {
+  interface HourlyProps {
     index: number;
     timeIndex: number;
-  };
+  }
 
   const { index, timeIndex }: HourlyProps = $props();
 
   const displayTime = $derived(
     new Intl.DateTimeFormat("en", {
       hour: "2-digit",
-      minute: "2-digit",
       hour12: false,
+      minute: "2-digit",
     }).format(new Date(store.weatherData.hourly.time[timeIndex]))
   );
 

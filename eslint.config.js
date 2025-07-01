@@ -1,7 +1,7 @@
 import { includeIgnoreFile } from "@eslint/compat";
 import lexis from "@julianelda/lexis";
 import svelte from "eslint-plugin-svelte";
-import { globalIgnores } from "eslint/config";
+import globals from "globals";
 import { fileURLToPath } from "node:url";
 import ts from "typescript-eslint";
 
@@ -9,12 +9,17 @@ import svelteConfig from "./svelte.config.js";
 
 const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
 
-export default [
-  globalIgnores(["icons"]),
-  ...lexis,
+const config = [
   includeIgnoreFile(gitignorePath),
+  ...lexis,
   ...svelte.configs.recommended,
   ...svelte.configs.prettier,
+  {
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+    rules: { "no-undef": "off" },
+  },
   {
     files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
     languageOptions: {
@@ -27,3 +32,5 @@ export default [
     },
   },
 ];
+
+export default config;
