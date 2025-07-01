@@ -60,8 +60,8 @@
 
       <Hyperlink
         title="Julius Polar"
-        href="https://github.com/JulianElda/kairos"
-        asterisk={false} />
+        href="https://julianelda.io"
+        asterisk={true} />
     </div>
     {#if $darkMode}
       <button
