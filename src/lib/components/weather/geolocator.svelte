@@ -11,20 +11,21 @@
       async (position: GeolocationPosition) => {
         store.isLoading = true;
 
-        const weatherData = await getWeatherData(
-          `${position.coords.latitude}`,
-          `${position.coords.longitude}`
-        );
+        const [weatherData, location] = await Promise.all([
+          getWeatherData(
+            `${position.coords.latitude}`,
+            `${position.coords.longitude}`,
+          ),
+          getLocationName(
+            `${position.coords.latitude}`,
+            `${position.coords.longitude}`,
+          ),
+        ]);
+
         store.weatherData = weatherData;
-
-        const location = await getLocationName(
-          `${position.coords.latitude}`,
-          `${position.coords.longitude}`
-        );
         store.location = location.name;
-
         store.isLoading = false;
-      }
+      },
     );
   });
 </script>

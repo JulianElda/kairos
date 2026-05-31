@@ -1,6 +1,6 @@
 import type { WeatherResponse } from "$lib/types/weather.types";
 
-import { getOpenMeteoWeatherApiUrl } from "$lib/utilities";
+import { getWeatherData } from "$lib/apis";
 
 import type { PageServerLoad } from "./$types";
 
@@ -18,9 +18,10 @@ export const load: PageServerLoad = async ({ fetch, request }) => {
   const longitude =
     request.headers.get("X-Vercel-IP-Longitude") ?? DEFAULT_LONGITUDE;
 
-  const weatherData: WeatherResponse = await fetch(
-    getOpenMeteoWeatherApiUrl(latitude, longitude)
-  ).then((result) => result.json());
+  const weatherData: WeatherResponse = await getWeatherData(
+    latitude,
+    longitude,
+  );
 
   return {
     city: decodeURI(city),

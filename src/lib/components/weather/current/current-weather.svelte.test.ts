@@ -1,25 +1,26 @@
 import CurrentWeather from "$lib/components/weather/current/current-weather.svelte";
 import { mockWeatherData } from "$lib/mocks";
-import { render, screen } from "@testing-library/svelte";
-import { describe, expect, test, vi } from "vitest";
+import { expect, test, vi } from "vitest";
+import { render } from "vitest-browser-svelte";
 
-describe("Current weather", () => {
-  vi.mock("$lib/store.svelte", () => ({
-    get store() {
-      const mockState = $state({
-        location: "München",
-        weatherData: mockWeatherData,
-      });
-      return mockState;
-    },
-  }));
+vi.mock("$lib/store.svelte", () => ({
+  get store() {
+    const mockState = $state({
+      location: "München",
+      weatherData: mockWeatherData,
+    });
+    return mockState;
+  },
+}));
 
-  test("show city name, temperature, description", () => {
-    render(CurrentWeather);
-    expect(screen.getByTestId("city-name")).toHaveTextContent("München");
-    expect(screen.getByTestId("current-temperature")).toHaveTextContent("20°C");
-    expect(screen.getByTestId("current-description")).toHaveTextContent(
-      "Overcast"
-    );
-  });
+test("show city name, temperature, description", async () => {
+  const { getByTestId } = await render(CurrentWeather);
+
+  await expect.element(getByTestId("city-name")).toHaveTextContent("München");
+  await expect
+    .element(getByTestId("current-temperature"))
+    .toHaveTextContent("20°C");
+  await expect
+    .element(getByTestId("current-description"))
+    .toHaveTextContent("Overcast");
 });

@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "@julianelda/chroma";
+@import "@julianelda/stilo";
+@import "@julianelda/domos/tailwind";
+@import "@julianelda/domos/background";
+
+@plugin "@tailwindcss/typography";

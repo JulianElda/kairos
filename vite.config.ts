@@ -1,31 +1,33 @@
-import tailwindcss from "@tailwindcss/vite";
-import { svelteTesting } from "@testing-library/svelte/vite";
 import { sveltekit } from "@sveltejs/kit/vite";
-import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+import { playwright } from "@vitest/browser-playwright";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [tailwindcss(), sveltekit()],
   test: {
-    workspace: [
+    expect: { requireAssertions: true },
+    projects: [
       {
         extends: "./vite.config.ts",
-        plugins: [svelteTesting()],
         test: {
-          name: "client",
-          environment: "jsdom",
-          clearMocks: true,
-          include: ["src/**/*.svelte.{test,spec}.{js,ts}"],
+          browser: {
+            enabled: true,
+            instances: [{ browser: "chromium", headless: true }],
+            provider: playwright(),
+          },
           exclude: ["src/lib/server/**"],
-          setupFiles: ["./vitest-setup-client.ts"],
+          include: ["src/**/*.svelte.test.ts"],
+          name: "client",
+          setupFiles: ["./src/test/test.setup.ts"],
         },
       },
       {
-        extends: "./vite.config.ts",
+        extends: true,
         test: {
-          name: "server",
-          environment: "node",
-          include: ["src/**/*.{test,spec}.{js,ts}"],
-          exclude: ["src/**/*.svelte.{test,spec}.{js,ts}"],
+          exclude: ["src/lib/**/*.svelte.test.ts"],
+          include: ["src/lib/**/*.test.ts", "src/routes/**/*.test.ts"],
+          name: "test",
         },
       },
     ],

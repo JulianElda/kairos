@@ -1,11 +1,6 @@
 import type { NominatimResponse } from "./types/nominatim.types";
 import type { WeatherResponse } from "./types/weather.types";
 
-import {
-  getNonimatimReverseGeocodingUrl,
-  getOpenMeteoWeatherApiUrl,
-} from "./utilities";
-
 export interface GeocodingCityResponse {
   admin1: string;
   admin1_id: number;
@@ -31,18 +26,36 @@ export interface GeocodingCityResponse {
 
 export async function getLocationName(
   latitude: string,
-  longitude: string
+  longitude: string,
 ): Promise<NominatimResponse> {
-  return await fetch(getNonimatimReverseGeocodingUrl(latitude, longitude)).then(
-    (result) => result.json()
-  );
+  const apiUrl = "https://nominatim.openstreetmap.org/reverse";
+  const apiParams = {
+    format: "json",
+    lat: latitude,
+    lon: longitude,
+    zoom: "12",
+  };
+
+  return await fetch(
+    `${apiUrl}?${new URLSearchParams(apiParams).toString()}`,
+  ).then((result) => result.json());
 }
 
 export async function getWeatherData(
   latitude: string,
-  longitude: string
+  longitude: string,
 ): Promise<WeatherResponse> {
-  return await fetch(getOpenMeteoWeatherApiUrl(latitude, longitude)).then(
-    (result) => result.json()
-  );
+  const apiUrl = "https://api.open-meteo.com/v1/forecast";
+  const apiParams = {
+    current: "temperature_2m,weather_code",
+    daily: "sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min",
+    hourly: "temperature_2m,weather_code",
+    latitude,
+    longitude,
+    timezone: "auto",
+  };
+
+  return await fetch(
+    `${apiUrl}?${new URLSearchParams(apiParams).toString()}`,
+  ).then((result) => result.json());
 }
