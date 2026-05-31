@@ -16,16 +16,15 @@ export default defineConfig({
             instances: [{ browser: "chromium", headless: true }],
             provider: playwright(),
           },
-          exclude: ["src/lib/server/**"],
+          exclude: ["src/routes/**/*.server.test.ts"],
           include: ["src/**/*.svelte.test.ts"],
-          name: "client",
           setupFiles: ["./src/test/test.setup.ts"],
         },
       },
       {
         extends: true,
         test: {
-          exclude: ["src/lib/**/*.svelte.test.ts"],
+          exclude: ["src/**/*.svelte.test.ts"],
           include: ["src/lib/**/*.test.ts", "src/routes/**/*.test.ts"],
           name: "test",
         },

@@ -1,33 +1,45 @@
 <script lang="ts">
+  import type {
+    WeatherDaily,
+    WeatherHourly,
+    WeatherHourlyUnits,
+  } from "$lib/types/weather.types";
+
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
-  import { store } from "$lib/store.svelte";
-  import { isDayTime } from "$lib/utilities";
+  import { isDayTime } from "$lib/time.utils";
 
   interface HourlyProps {
+    dailyWeather: WeatherDaily;
+    hourlyUnits: WeatherHourlyUnits;
+    hourlyWeather: WeatherHourly;
     index: number;
     timeIndex: number;
   }
 
-  const { index, timeIndex }: HourlyProps = $props();
+  const {
+    dailyWeather,
+    hourlyUnits,
+    hourlyWeather,
+    index,
+    timeIndex,
+  }: HourlyProps = $props();
 
   const displayTime = $derived(
     new Intl.DateTimeFormat("en", {
       hour: "2-digit",
       hour12: false,
       minute: "2-digit",
-    }).format(new Date(store.weatherData.hourly.time[timeIndex]))
+    }).format(new Date(hourlyWeather.time[timeIndex])),
   );
 
   const temperature = $derived(
-    Math.floor(store.weatherData.hourly.temperature_2m[timeIndex])
+    Math.floor(hourlyWeather.temperature_2m[timeIndex]),
   );
-  const weatherCode = $derived(
-    store.weatherData.hourly.weather_code[timeIndex]
-  );
+  const weatherCode = $derived(hourlyWeather.weather_code[timeIndex]);
   const isDayIcon = $derived(
-    isDayTime(store.weatherData.hourly.time[timeIndex], store.weatherData.daily)
+    isDayTime(hourlyWeather.time[timeIndex], dailyWeather),
   );
-  const units = $derived(store.weatherData.hourly_units.temperature_2m);
+  const units = $derived(hourlyUnits.temperature_2m);
 </script>
 
 <div class="flex flex-col items-center">

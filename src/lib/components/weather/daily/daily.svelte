@@ -1,24 +1,26 @@
 <script lang="ts">
+  import type {
+    WeatherDaily,
+    WeatherDailyUnits,
+  } from "$lib/types/weather.types";
+
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
-  import { store } from "$lib/store.svelte";
-  import { formatDailyDisplayDay } from "$lib/utilities";
+  import { formatDailyDisplayDay } from "$lib/time.utils";
 
   interface DailyProps {
+    dailyUnits: WeatherDailyUnits;
+    dailyWeather: WeatherDaily;
     index: number;
   }
 
-  const { index }: DailyProps = $props();
+  const { dailyUnits, dailyWeather, index }: DailyProps = $props();
 
   const formattedDay = $derived(
-    formatDailyDisplayDay(store.weatherData.daily.time.slice(0, 5))[index]
+    formatDailyDisplayDay(dailyWeather.time.slice(0, 5))[index],
   );
-  const weatherCode = $derived(store.weatherData.daily.weather_code[index]);
-  const min = $derived(
-    Math.floor(store.weatherData.daily.temperature_2m_min[index])
-  );
-  const max = $derived(
-    Math.floor(store.weatherData.daily.temperature_2m_max[index])
-  );
+  const weatherCode = $derived(dailyWeather.weather_code[index]);
+  const min = $derived(Math.floor(dailyWeather.temperature_2m_min[index]));
+  const max = $derived(Math.floor(dailyWeather.temperature_2m_max[index]));
 </script>
 
 <div class="flex h-12 flex-row items-center gap-4">
@@ -35,11 +37,11 @@
   <div
     class="w-16 text-end text-lg"
     data-testid={"daily-min-" + index}>
-    {min}{store.weatherData.daily_units.temperature_2m_min}
+    {min}{dailyUnits.temperature_2m_min}
   </div>
   <div
     class="w-16 text-end text-lg"
     data-testid={"daily-max-" + index}>
-    {max}{store.weatherData.daily_units.temperature_2m_max}
+    {max}{dailyUnits.temperature_2m_max}
   </div>
 </div>

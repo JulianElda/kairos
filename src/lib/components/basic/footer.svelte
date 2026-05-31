@@ -18,7 +18,7 @@
   onMount(() => {
     const cookieValue = Cookies.get(COOKIE_KEY);
     const prefersDark = globalThis?.matchMedia?.(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
 
     const shouldUseDark =
@@ -40,7 +40,7 @@
 
 {#if !isLoading}
   <footer
-    class="bg-app-background-light dark:bg-app-background-dark flex max-w-sm items-center p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto sm:justify-between md:max-w-md">
+    class="flex max-w-sm items-center bg-app-background-light p-2 sm:fixed sm:right-0 sm:bottom-0 sm:left-0 sm:mx-auto sm:justify-between md:max-w-md dark:bg-app-background-dark">
     <div class="flex flex-1 items-center gap-1">
       <a
         href="https://github.com/JulianElda/kairos"
@@ -67,7 +67,7 @@
       <button
         aria-label="toggle light mode"
         data-testid="footer-toggle-light"
-        class="bg-app-background-light text-app-text-light size-8 cursor-pointer rounded-md p-1"
+        class="size-8 cursor-pointer rounded-md bg-app-background-light p-1 text-app-text-light"
         onclick={() => darkMode.update((value) => !value)}>
         <ThemeSun />
       </button>
@@ -75,7 +75,7 @@
       <button
         aria-label="toggle dark mode"
         data-testid="footer-toggle-dark"
-        class="bg-app-background-dark text-app-text-dark size-8 cursor-pointer rounded-md p-1"
+        class="size-8 cursor-pointer rounded-md bg-app-background-dark p-1 text-app-text-dark"
         onclick={() => darkMode.update((value) => !value)}>
         <ThemeMoon />
       </button>

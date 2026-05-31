@@ -1,26 +1,24 @@
 import { mockWeatherData } from "$lib/mocks";
-import "@testing-library/jest-dom/vitest";
-import { render, screen } from "@testing-library/svelte";
-import { describe, expect, test } from "vitest";
+import { expect, test } from "vitest";
+import { render } from "vitest-browser-svelte";
 
 import Page from "./+page.svelte";
 
-describe("/+page.svelte", () => {
-  test("show city name, temperature, description", () => {
-    render(Page, {
-      props: {
-        data: {
-          city: "München",
-          weatherData: mockWeatherData,
-        },
-        form: {},
+test("show city name, temperature, description", async () => {
+  const { getByTestId } = render(Page, {
+    props: {
+      data: {
+        city: "München",
+        weatherData: mockWeatherData,
       },
-    });
-
-    expect(screen.getByTestId("city-name")).toHaveTextContent("München");
-    expect(screen.getByTestId("current-temperature")).toHaveTextContent("20°C");
-    expect(screen.getByTestId("current-description")).toHaveTextContent(
-      "Overcast"
-    );
+    },
   });
+
+  await expect.element(getByTestId("city-name")).toHaveTextContent("München");
+  await expect
+    .element(getByTestId("current-temperature"))
+    .toHaveTextContent("20°C");
+  await expect
+    .element(getByTestId("current-description"))
+    .toHaveTextContent("Overcast");
 });
