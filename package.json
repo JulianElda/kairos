@@ -17,6 +17,7 @@
     "@julianelda/chroma": "^1.0.0",
     "@julianelda/domos": "^1.2.1",
     "@julianelda/stilo": "^1.0.2",
+    "@lucide/svelte": "^1.17.0",
     "@tailwindcss/typography": "^0.5.19",
     "js-cookie": "^3.0.8"
   },

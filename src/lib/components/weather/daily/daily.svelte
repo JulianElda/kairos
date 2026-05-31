@@ -25,7 +25,7 @@
 
 <div class="flex h-12 flex-row items-center gap-4">
   <div
-    class="flex-1 text-lg"
+    class="flex-1 text-lg font-semibold"
     data-testid={"daily-day-" + index}>
     {formattedDay}
   </div>
@@ -40,7 +40,7 @@
     {min}{dailyUnits.temperature_2m_min}
   </div>
   <div
-    class="w-16 text-end text-lg"
+    class="w-16 text-end text-lg font-semibold"
     data-testid={"daily-max-" + index}>
     {max}{dailyUnits.temperature_2m_max}
   </div>
