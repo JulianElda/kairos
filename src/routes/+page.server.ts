@@ -4,16 +4,10 @@ import { getWeatherData } from "$lib/apis";
 
 import type { PageServerLoad } from "./$types";
 
-const DEFAULT_CITY = "Munich";
-const DEFAULT_LATITUDE = "52.52437";
-const DEFAULT_LONGITUDE = "13.41053";
-
 export const load: PageServerLoad = async ({ request }) => {
-  const city = request.headers.get("X-Vercel-IP-City") ?? DEFAULT_CITY;
-  const latitude =
-    request.headers.get("X-Vercel-IP-latitude") ?? DEFAULT_LATITUDE;
-  const longitude =
-    request.headers.get("X-Vercel-IP-Longitude") ?? DEFAULT_LONGITUDE;
+  const city = request.headers.get("X-Vercel-IP-City") ?? "";
+  const latitude = request.headers.get("X-Vercel-IP-Latitude") ?? "";
+  const longitude = request.headers.get("X-Vercel-IP-Longitude") ?? "";
 
   const weatherData: WeatherResponse = await getWeatherData(
     latitude,

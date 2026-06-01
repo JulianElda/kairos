@@ -41,3 +41,9 @@
 - Do not wrap tests in a file in a `describe()`.
 - Use `test`, not `it`.
 - When multiple async assertions are independent, run them in a single Promise.all instead of sequential awaits. Keep sequential awaits only when assertion order matters, user interactions change state between checks, or clearer failure isolation is needed.
+
+## Docs
+
+- Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- Features: [docs/FEATURES.md](docs/FEATURES.md)
+- TODOS: [docs/TODOS.md](docs/TODOS.md)
