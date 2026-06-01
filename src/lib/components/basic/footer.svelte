@@ -5,14 +5,13 @@
   import ThemeSun from "$lib/components/icons/theme-sun.svelte";
   import Cookies from "js-cookie";
   import { onMount } from "svelte";
-  import { writable } from "svelte/store";
 
   import Hyperlink from "./hyperlink.svelte";
 
   const COOKIE_KEY = "dark-theme";
   const DARKMODE_CLASS = "dark";
 
-  const darkMode = writable(false);
+  let darkMode = $state(false);
   let isLoading = $state(true);
 
   onMount(() => {
@@ -24,18 +23,22 @@
     const shouldUseDark =
       cookieValue === "true" || (!cookieValue && prefersDark);
 
-    darkMode.set(shouldUseDark);
+    darkMode = shouldUseDark;
     document.documentElement.classList.toggle(DARKMODE_CLASS, shouldUseDark);
 
     isLoading = false;
-
-    darkMode.subscribe((value) => {
-      Cookies.set(COOKIE_KEY, String(value));
-      if (typeof document !== "undefined") {
-        document.documentElement.classList.toggle(DARKMODE_CLASS, value);
-      }
-    });
   });
+
+  $effect(function syncDarkModeCookies() {
+    Cookies.set(COOKIE_KEY, String(darkMode));
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.toggle(DARKMODE_CLASS, darkMode);
+    }
+  });
+
+  const handleToggleDarkMode = () => {
+    darkMode = !darkMode;
+  };
 </script>
 
 {#if !isLoading}
@@ -49,9 +52,9 @@
         rel="noreferrer"
         class={[
           "size-8 rounded-md p-1",
-          $darkMode ? "bg-app-background-light" : "bg-app-background-dark",
+          darkMode ? "bg-app-background-light" : "bg-app-background-dark",
         ]}>
-        {#if $darkMode}
+        {#if darkMode}
           <GithubMarkDark />
         {:else}
           <GithubMarkLight />
@@ -63,12 +66,12 @@
         href="https://julianelda.io"
         asterisk={true} />
     </div>
-    {#if $darkMode}
+    {#if darkMode}
       <button
         aria-label="toggle light mode"
         data-testid="footer-toggle-light"
         class="size-8 cursor-pointer rounded-md bg-app-background-light p-1 text-app-text-light"
-        onclick={() => darkMode.update((value) => !value)}>
+        onclick={handleToggleDarkMode}>
         <ThemeSun />
       </button>
     {:else}
@@ -76,7 +79,7 @@
         aria-label="toggle dark mode"
         data-testid="footer-toggle-dark"
         class="size-8 cursor-pointer rounded-md bg-app-background-dark p-1 text-app-text-dark"
-        onclick={() => darkMode.update((value) => !value)}>
+        onclick={handleToggleDarkMode}>
         <ThemeMoon />
       </button>
     {/if}
