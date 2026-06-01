@@ -14,7 +14,6 @@
     timeIndex: number;
     weatherData: WeatherResponse;
   }
-
   const { index, timeIndex, weatherData }: HourlyProps = $props();
 
   const displayTime = $derived(getHourlyDisplayTime(weatherData, timeIndex));

@@ -13,7 +13,7 @@
         (!match &&
           globalThis.matchMedia?.("(prefers-color-scheme: dark)").matches);
 
-      document.documentElement.classList.add(isDark ? "dark" : "");
+      document.documentElement.classList.toggle("dark", isDark);
       document.cookie = `dark-theme=${isDark}`;
     })();
   </script>

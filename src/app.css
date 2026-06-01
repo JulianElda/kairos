@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@import "@julianelda/chroma";
-@import "@julianelda/scratchpad";
-@import "@julianelda/stilo";
-
-@custom-variant dark (&:is(.dark *));
