@@ -1,4 +1,4 @@
-import { mockWeatherData } from "$lib/mocks";
+import { mockWeatherData } from "$lib/types/weather.mocks";
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-svelte";
 

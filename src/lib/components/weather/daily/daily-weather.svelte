@@ -1,19 +1,15 @@
 <script lang="ts">
-  import type {
-    WeatherDaily,
-    WeatherDailyUnits,
-  } from "$lib/types/weather.types";
+  import type { WeatherResponse } from "$lib/types/weather.types";
 
   import { Card } from "@julianelda/domos";
 
   import Daily from "./daily.svelte";
 
   interface DailyProps {
-    dailyUnits: WeatherDailyUnits;
-    dailyWeather: WeatherDaily;
+    weatherData: WeatherResponse;
   }
 
-  const { dailyUnits, dailyWeather }: DailyProps = $props();
+  const { weatherData }: DailyProps = $props();
 </script>
 
 <Card>
@@ -21,8 +17,7 @@
     {#each Array.from({ length: 5 }, (_, i) => i) as index (index)}
       <Daily
         {index}
-        {dailyUnits}
-        {dailyWeather} />
+        {weatherData} />
     {/each}
   </div>
 </Card>

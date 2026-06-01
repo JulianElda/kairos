@@ -1,4 +1,4 @@
-import type { WeatherDaily } from "./types/weather.types";
+import type { WeatherDaily, WeatherResponse } from "./types/weather.types";
 
 export function formatDailyDisplayDay(days: string[]): string[] {
   return days.map((day: string) =>
@@ -15,13 +15,18 @@ export function formatToHourISOString(date: Date): string {
   return `${year}-${month}-${day}T${hours}:00`;
 }
 
-export function isDayTime(currentTime: string, daily: WeatherDaily): boolean {
+export function isDayTime(
+  weatherData: WeatherResponse,
+  time: string = weatherData.current.time,
+): boolean {
+  const daily: WeatherDaily = weatherData.daily;
+
   // 2025-05-20T13:30 -> 2025-05-20
-  const currentDay = currentTime.slice(0, 10);
+  const currentDay = time.slice(0, 10);
 
   const timeIndex = daily.time.indexOf(currentDay);
 
-  const currentDate = new Date(currentTime);
+  const currentDate = new Date(time);
   const sunrise = new Date(daily.sunrise[timeIndex]);
   const sunset = new Date(daily.sunset[timeIndex]);
 

@@ -1,62 +1,28 @@
 <script lang="ts">
-  import type {
-    WeatherCurrent,
-    WeatherDaily,
-    WeatherDailyUnits,
-    WeatherHourly,
-    WeatherHourlyUnits,
-  } from "$lib/types/weather.types";
+  import type { WeatherResponse } from "$lib/types/weather.types";
 
-  import { formatToHourISOString } from "$lib/time.utils";
+  import {
+    getCurrentHourApparentTemperature,
+    getCurrentHourRelativeHumidity,
+    getCurrentHourWindDirection,
+    getCurrentHourWindSpeed,
+    getDailyUVIndexMax,
+  } from "$lib/weather.utils";
   import { Card } from "@julianelda/domos";
   import { ArrowUp } from "@lucide/svelte";
-  import { SvelteDate } from "svelte/reactivity";
 
   interface DetailedWeatherProps {
-    currentWeather: WeatherCurrent;
-    dailyUnits: WeatherDailyUnits;
-    dailyWeather: WeatherDaily;
-    hourlyUnits: WeatherHourlyUnits;
-    hourlyWeather: WeatherHourly;
+    weatherData: WeatherResponse;
   }
-  const {
-    currentWeather,
-    dailyUnits,
-    dailyWeather,
-    hourlyUnits,
-    hourlyWeather,
-  }: DetailedWeatherProps = $props();
+  const { weatherData }: DetailedWeatherProps = $props();
 
-  const timeStart = $derived.by<number>(() => {
-    const currentTime = new SvelteDate(currentWeather.time);
-    currentTime.setMinutes(0);
-
-    const roundedDownHours = formatToHourISOString(currentTime);
-
-    return hourlyWeather.time.indexOf(roundedDownHours);
-  });
-
-  const apparentTemperature = $derived.by(
-    () =>
-      `${hourlyWeather.apparent_temperature[timeStart]}${hourlyUnits.apparent_temperature}`,
+  const apparentTemperature = $derived(
+    getCurrentHourApparentTemperature(weatherData),
   );
-
-  const humidity = $derived.by(
-    () =>
-      `${hourlyWeather.relative_humidity_2m[timeStart]}${hourlyUnits.relative_humidity_2m}`,
-  );
-
-  const uv = $derived.by(
-    () =>
-      `${Math.round(dailyWeather.uv_index_max[0])}${dailyUnits.uv_index_max}`,
-  );
-
-  const windSpeed = $derived.by(
-    () =>
-      `${hourlyWeather.wind_speed_10m[timeStart]}${hourlyUnits.wind_speed_10m}`,
-  );
-
-  const windDirection = $derived(hourlyWeather.wind_direction_10m[timeStart]);
+  const humidity = $derived(getCurrentHourRelativeHumidity(weatherData));
+  const uv = $derived(getDailyUVIndexMax(weatherData));
+  const windSpeed = $derived(getCurrentHourWindSpeed(weatherData));
+  const windDirection = $derived(getCurrentHourWindDirection(weatherData));
 </script>
 
 <div class="grid grid-cols-2 gap-2">

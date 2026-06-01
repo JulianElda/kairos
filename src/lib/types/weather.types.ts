@@ -48,7 +48,7 @@ export interface WeatherHourlyUnits {
   relative_humidity_2m: string;
   temperature_2m: string;
   time: string;
-  uv_index: "";
+  uv_index: string;
   weather_code: string;
   wind_direction_10m: string;
   wind_speed_10m: string;

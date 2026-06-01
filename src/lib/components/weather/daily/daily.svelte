@@ -1,26 +1,25 @@
 <script lang="ts">
-  import type {
-    WeatherDaily,
-    WeatherDailyUnits,
-  } from "$lib/types/weather.types";
+  import type { WeatherResponse } from "$lib/types/weather.types";
 
   import WeatherIcon from "$lib/components/basic/weather-icon.svelte";
-  import { formatDailyDisplayDay } from "$lib/time.utils";
+  import {
+    getDailyDayname,
+    getDailyMaxTemperature,
+    getDailyMinTemperature,
+    getDailyWeatherCode,
+  } from "$lib/weather.utils";
 
   interface DailyProps {
-    dailyUnits: WeatherDailyUnits;
-    dailyWeather: WeatherDaily;
     index: number;
+    weatherData: WeatherResponse;
   }
 
-  const { dailyUnits, dailyWeather, index }: DailyProps = $props();
+  const { index, weatherData }: DailyProps = $props();
 
-  const formattedDay = $derived(
-    formatDailyDisplayDay(dailyWeather.time.slice(0, 5))[index],
-  );
-  const weatherCode = $derived(dailyWeather.weather_code[index]);
-  const min = $derived(Math.floor(dailyWeather.temperature_2m_min[index]));
-  const max = $derived(Math.floor(dailyWeather.temperature_2m_max[index]));
+  const formattedDay = $derived(getDailyDayname(weatherData, index));
+  const weatherCode = $derived(getDailyWeatherCode(weatherData, index));
+  const min = $derived(getDailyMinTemperature(weatherData, index));
+  const max = $derived(getDailyMaxTemperature(weatherData, index));
 </script>
 
 <div class="flex h-12 flex-row items-center gap-4">
@@ -37,11 +36,11 @@
   <div
     class="w-16 text-end text-lg"
     data-testid={"daily-min-" + index}>
-    {min}{dailyUnits.temperature_2m_min}
+    {min}
   </div>
   <div
     class="w-16 text-end text-lg font-semibold"
     data-testid={"daily-max-" + index}>
-    {max}{dailyUnits.temperature_2m_max}
+    {max}
   </div>
 </div>

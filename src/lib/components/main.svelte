@@ -53,24 +53,11 @@
     <Loader />
   {/if}
   <CurrentWeather
-    currentWeather={data.current}
-    currentUnits={data.current_units}
-    dailyWeather={data.daily}
-    {location} />
-  <DetailedWeather
-    currentWeather={data.current}
-    dailyUnits={data.daily_units}
-    dailyWeather={data.daily}
-    hourlyUnits={data.hourly_units}
-    hourlyWeather={data.hourly} />
-  <HourlyWeather
-    currentWeather={data.current}
-    dailyWeather={data.daily}
-    hourlyUnits={data.hourly_units}
-    hourlyWeather={data.hourly} />
-  <DailyWeather
-    dailyUnits={data.daily_units}
-    dailyWeather={data.daily} />
+    {location}
+    weatherData={data} />
+  <DetailedWeather weatherData={data} />
+  <HourlyWeather weatherData={data} />
+  <DailyWeather weatherData={data} />
 </div>
 
 <Footer />
