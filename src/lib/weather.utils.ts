@@ -82,7 +82,7 @@ export function getHourlyDisplayTime(
   weatherData: WeatherResponse,
   index: number,
 ) {
-  new Intl.DateTimeFormat("en", {
+  return new Intl.DateTimeFormat("en", {
     hour: "2-digit",
     hour12: false,
     minute: "2-digit",
