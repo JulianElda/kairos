@@ -88,10 +88,10 @@
     <div class="flex flex-row items-center justify-between p-1">
       <div class="text-lg">Wind</div>
       <div class="flex flex-row font-semibold">
-        {windSpeed}
         <ArrowUp
           strokeWidth={1}
           style="transform: rotate({windDirection}deg)" />
+        {windSpeed}
       </div>
     </div>
   </Card>
